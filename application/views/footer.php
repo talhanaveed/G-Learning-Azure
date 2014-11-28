@@ -4,16 +4,16 @@
         <div id="left_footer"><b>Find Us On</b>
             <ul>
                 <li> 
-                    <a href=#><img src="<?php echo base_url();?>assets/images/fb-icon.png"  /></a> 
+                    <a href=#><img src="http://glearning-test.azurewebsites.net/assets/images/fb-icon.png"  /></a> 
                 </li>
                 <li> 
-                    <a href=#><img src="<?php echo base_url();?>assets/images/twit-icon.png"  />  </a> 
+                    <a href=#><img src="http://glearning-test.azurewebsites.net/assets/images/twit-icon.png"  />  </a> 
                 </li>
                 <li> 
-                    <a href=#><img src="<?php echo base_url();?>assets/images/insta-icon.png"  /> </a> 
+                    <a href=#><img src="http://glearning-test.azurewebsites.net/assets/images/insta-icon.png"  /> </a> 
                 </li>
                 <li> 
-                    <a href=#><img src="<?php echo base_url();?>assets/images/rss-icon.png"  /></a> 
+                    <a href=#><img src="http://glearning-test.azurewebsites.net/assets/images/rss-icon.png"  /></a> 
                 </li>
             </ul>
         </div> 	

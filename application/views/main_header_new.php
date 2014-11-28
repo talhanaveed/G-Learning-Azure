@@ -106,7 +106,7 @@
                         <a href='#contactus'>  
                             <div class="green_icon_nav">
                                 <div class="navbar-images-container green_icon_img">
-                                    <img class="navbar-images" src="<?php echo base_url();?>/assets/images/docs_nav.png"/>
+                                    <img class="navbar-images" src="http://glearning-test.azurewebsites.net//assets/images/docs_nav.png"/>
                                 </div>
                                  <div id="green_icon_desc" class="navbar_img_desc"> CONTACT US</div>
                             </div>
@@ -114,7 +114,7 @@
                           <a href='#team-info'> 
                               <div class="grey_icon_nav">
                                     <div class="navbar-images-container grey_icon_img">
-                                        <img class="navbar-images" src="<?php echo base_url();?>/assets/images/23.png"/>
+                                        <img class="navbar-images" src="http://glearning-test.azurewebsites.net//assets/images/23.png"/>
                                     </div>
                                     <div id="grey_icon_desc" class="navbar_img_desc"> OUR TEAM</div>
                             </div>
@@ -122,7 +122,7 @@
                         <a href='#features'>
                             <div class="blue_icon_nav">
                                 <div class="navbar-images-container blue_icon_img">
-                                    <img class="navbar-images" src="<?php echo base_url();?>/assets/images/features_nav.png"/>
+                                    <img class="navbar-images" src="http://glearning-test.azurewebsites.net//assets/images/features_nav.png"/>
                                 </div>
                              <div id="blue_icon_desc" class="navbar_img_desc"> FEATURES</div>
                             </div>
@@ -130,7 +130,7 @@
                         <a href='#intro'>
                             <div class="pink_icon_nav">
                                 <div class="navbar-images-container pink_icon_img">
-                                    <img class="navbar-images" src="<?php echo base_url();?>/assets/images/questionmark_nav.png"/>
+                                    <img class="navbar-images" src="http://glearning-test.azurewebsites.net//assets/images/questionmark_nav.png"/>
                                 </div>  
                                 <div id="pink_icon_desc" class="navbar_img_desc"> WHAT <Br/> IS <br/> G-LEARNING </div>
                             </div>

@@ -34,7 +34,7 @@
                 <ul>
                      <li>
                         <div>
-                            <img width="100" height="100" src="<?php echo base_url(); ?>/assets/images/techf.png" alt="Picture">
+                            <img width="100" height="100" src="http://glearning-test.azurewebsites.net//assets/images/techf.png" alt="Picture">
                         </div>
                         <div>
                             <h3> Easily Accessbile</h3>
@@ -43,7 +43,7 @@
                     </li>
                      <li>
                         <div>
-                            <img width="100" height="100" src="<?php echo base_url(); ?>/assets/images/wwwf.png" alt="Picture">
+                            <img width="100" height="100" src="http://glearning-test.azurewebsites.net//assets/images/wwwf.png" alt="Picture">
                         </div>
                         <div>
                             <h3> Worldwide Access</h3>
@@ -52,7 +52,7 @@
                     </li>
                      <li>
                         <div>
-                            <img width="100" height="100" src="<?php echo base_url(); ?>/assets/images/gamesf.png" alt="Picture">
+                            <img width="100" height="100" src="http://glearning-test.azurewebsites.net//assets/images/gamesf.png" alt="Picture">
                         </div>
                         <div>
                             <h3>Interactive Games</h3>
@@ -61,7 +61,7 @@
                     </li>
                     <li>
                         <div>
-                            <img width="100" height="100" src="<?php echo base_url(); ?>/assets/images/reportsf.png" alt="Picture">
+                            <img width="100" height="100" src="http://glearning-test.azurewebsites.net//assets/images/reportsf.png" alt="Picture">
                         </div>
                         <div>
                             <h3>Detailed Progress Reports</h3>
