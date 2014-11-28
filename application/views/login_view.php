@@ -30,7 +30,7 @@
     <div id="login-box-wrapper">
         <div class="logo"></div>
         <br/><br/><br/>
-        <form method="post" action="http://glearning-test.azurewebsites.net/home/student_dashboard">
+        <form method="post" action="http://glearning-test.azurewebsites.net/index.php/home/student_dashboard">
             <div class="form-field">
                 <div class="field">
                     <input type="email" name="username"  id="username" value="Email" onfocus="if (this.value == 'Email') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Email';}" >

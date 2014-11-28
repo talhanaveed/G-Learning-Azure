@@ -35,7 +35,7 @@
         <div class="student_top_menu">
             <div class="student_menu_tabs">
                 <div class="student_menu_tab">
-                    <a href="http://glearning-test.azurewebsites.net/parents/index/">
+                    <a href="http://glearning-test.azurewebsites.net/index.php/parents/index/">
                         <div class="student_menu_tab_body">
                             <img src="http://glearning-test.azurewebsites.net/assets/images/galley.png"/>
                             <label>Parents</label>
@@ -59,7 +59,7 @@
                     </a>
                 </div>
                 <div class="student_menu_tab">
-                    <a href="http://glearning-test.azurewebsites.net/home/drills/">
+                    <a href="http://glearning-test.azurewebsites.net/index.php/home/drills/">
                         <div class="student_menu_tab_body">
                             <img src="http://glearning-test.azurewebsites.net/assets/images/games.png"/>
                             <label>Games</label>
@@ -74,7 +74,7 @@
                 <br/><br/>
                 <img src="http://glearning-test.azurewebsites.net/assets/images/doggy.png"/>
             </div>
-            <a href="http://glearning-test.azurewebsites.net/home/drills/">
+            <a href="http://glearning-test.azurewebsites.net/index.php/home/drills/">
                 <div class="welcome_cloud">
                     <img src="http://glearning-test.azurewebsites.net/assets/images/cloud2.png"/>
                     <label>Let's Play Friend</label>

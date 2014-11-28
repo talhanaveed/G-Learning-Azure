@@ -25,7 +25,7 @@ $(document).ready(function(){
                 </div>
             </div>
             <div class="goback_fixed_button">
-                <a href="http://glearning-test.azurewebsites.net/home/student_dashboard">
+                <a href="http://glearning-test.azurewebsites.net/index.php/home/student_dashboard">
                     <img src="http://glearning-test.azurewebsites.net//assets/images/back.png" alt="back" />
                 </a>
             </div>
@@ -39,7 +39,7 @@ $(document).ready(function(){
                         <figcaption>
                             <h3>Catchy</h3>
                             <p>Teaches the concept of Even / Odd numbers</p>
-                            <p><a href="http://glearning-test.azurewebsites.net/games/play_cachy_even_odd">Play Game</a></p>
+                            <p><a href="http://glearning-test.azurewebsites.net/index.php/games/play_cachy_even_odd">Play Game</a></p>
                         </figcaption>
                     </figure>
                 </div>
@@ -49,7 +49,7 @@ $(document).ready(function(){
                         <figcaption>
                             <h3>Balloon Party</h3>
                             <p>Teaches the concept of Highest / Lowest numbers</p>
-                            <p><a href="http://glearning-test.azurewebsites.net/games/balloon_party">Play Game</a></p>
+                            <p><a href="http://glearning-test.azurewebsites.net/index.php/games/balloon_party">Play Game</a></p>
                         </figcaption>
                     </figure>
                 </div>
@@ -59,7 +59,7 @@ $(document).ready(function(){
                         <figcaption>
                             <h3>Catchy</h3>
                             <p>Teaches the concept of multiples of a number</p>
-                            <p><a href="http://glearning-test.azurewebsites.net/games/play_cachy_multiples_of_5">Play Game</a></p>
+                            <p><a href="http://glearning-test.azurewebsites.net/index.php/games/play_cachy_multiples_of_5">Play Game</a></p>
                         </figcaption>
                     </figure>
                 </div>
