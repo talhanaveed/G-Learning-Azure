@@ -1,0 +1,239 @@
+/* Basic sample */
+.flipbook-viewport{
+    overflow:hidden;
+    width:100%;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.flipbook-viewport .container{
+    margin: auto;
+    width:900px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.flipbook-viewport .flipbook{
+    margin: 35px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.flipbook-viewport .page{
+    width:681px;
+    height:400px;
+    background-color:white;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.flipbook-viewport .page img{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin:0;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.flipbook-viewport .shadow{
+    -webkit-transition: -webkit-box-shadow 0.5s;
+    -moz-transition: -moz-box-shadow 0.5s;
+    -o-transition: -webkit-box-shadow 0.5s;
+    -ms-transition: -ms-box-shadow 0.5s;
+    -webkit-box-shadow:0 0 30px #CCC;
+    -moz-box-shadow:0 0 30px #CCC;
+    -o-box-shadow:0 0 30px #CCC;
+    -ms-box-shadow:0 0 30px #CCC;
+    box-shadow:0 0 30px #CCC;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+/*  Parents_View CSS  */
+.book_main_page
+{
+    background: url(../images/report.png);
+    text-align: center;
+}
+
+.report_card_heading
+{
+    color:#D35453;
+    margin-top:80px;
+}
+
+.report_card_heading .report_name
+{
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: myriad-pro;
+}
+
+.report_card_heading .school_name
+{
+    font-weight: 600;
+    margin:20px;
+    font-size: 24px;
+    font-family: myriad-pro;
+}
+
+.report_card_heading .student_name
+{
+    font-weight: 600;
+    margin:20px;
+    font-size: 16px;
+    font-family: myriad-pro;
+}
+
+.assignment_list
+{
+    text-align: center;
+}
+
+.result_sheet_heading
+{
+    font-weight: 600;
+    font-size: 24px;
+    font-family: myriad-pro;
+    margin-top:30px;
+    color:#D35453;
+}
+
+.CSSTableGenerator {
+    width:375px;
+    padding:0px;
+    box-shadow: 0px 0px 10px #888888;
+    border:1px solid #7f0000 !important;
+
+    -moz-border-radius-bottomleft:10px;
+    -webkit-border-bottom-left-radius:10px;
+    border-bottom-left-radius:10px;
+
+    -moz-border-radius-bottomright:10px;
+    -webkit-border-bottom-right-radius:10px;
+    border-bottom-right-radius:10px;
+
+    -moz-border-radius-topright:10px;
+    -webkit-border-top-right-radius:10px;
+    border-top-right-radius:10px;
+
+    -moz-border-radius-topleft:10px;
+    -webkit-border-top-left-radius:10px;
+    border-top-left-radius:10px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width:100%;
+    height:100%;
+    margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+    -moz-border-radius-bottomright:10px;
+    -webkit-border-bottom-right-radius:10px;
+    border-bottom-right-radius:10px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+    -moz-border-radius-topleft:10px;
+    -webkit-border-top-left-radius:10px;
+    border-top-left-radius:10px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+    -moz-border-radius-topright:10px;
+    -webkit-border-top-right-radius:10px;
+    border-top-right-radius:10px;
+}.CSSTableGenerator tr:last-child td:first-child{
+    -moz-border-radius-bottomleft:10px;
+    -webkit-border-bottom-left-radius:10px;
+    border-bottom-left-radius:10px;
+}.CSSTableGenerator tr:hover td{
+
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#ffaaaa; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+    vertical-align:middle;
+
+
+    border:1px solid #7f0000 !important;
+    border-width:0px 1px 1px 0px;
+    text-align:center;
+    font-size:12px;
+    font-family:Georgia;
+    font-weight:normal;
+    color:#000000;
+}.CSSTableGenerator tr:last-child td{
+    border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+    border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+    border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+            background:-o-linear-gradient(bottom, #ff9393 5%, #d35453 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff9393), color-stop(1, #d35453) );
+    background:-moz-linear-gradient( center top, #ff9393 5%, #d35453 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff9393", endColorstr="#d35453");	background: -o-linear-gradient(top,#ff9393,d35453);
+
+    background-color:#ff9393;
+    border:0px solid #7f0000 !important;
+    text-align:center;
+    border-width:0px 0px 1px 1px;
+    font-size:14px;
+    font-family:Georgia;
+    font-weight:bold;
+    color:#ffffff;
+}
+.CSSTableGenerator tr:first-child:hover td{
+    background:-o-linear-gradient(bottom, #ff9393 5%, #d35453 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff9393), color-stop(1, #d35453) );
+    background:-moz-linear-gradient( center top, #ff9393 5%, #d35453 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff9393", endColorstr="#d35453");	background: -o-linear-gradient(top,#ff9393,d35453);
+
+    background-color:#ff9393;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+    border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+    border-width:0px 0px 1px 1px;
+}
+
+.graph_container
+{
+    text-align: center;
+}
+
+.graph_container label
+{
+    font-weight: 600;
+    font-size: 24px;
+    font-family: myriad-pro;
+    margin-top:30px;
+    color:#D35453;
+}
+
+.graph_body
+{
+    margin-left: 10px;
+}
+
+.graph_body label
+{
+    font-size: 18px;
+    font-family: myriad-pro;
+    color:#D35453;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: -20px;
+}
+
+.graph_body label>span
+{
+    font-size: 18px;
+    font-family: myriad-pro;
+    color:#333;
+    text-align: left;
+}

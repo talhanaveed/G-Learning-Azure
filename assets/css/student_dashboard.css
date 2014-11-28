@@ -1,0 +1,578 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url(../fonts/montserrat/Montserrat-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "myriad-pro";
+    src: url(../fonts/myriad-pro/MYRIADPRO-REGULAR.OTF) format("truetype");
+}
+
+@font-face {
+    font-family: "jango";
+    src: url(../fonts/jango/Always_In_My_Heart.ttf) format("truetype");
+}
+
+.student_dashboard_body{
+    width:100%;
+    height:auto;
+    margin:auto;
+}
+
+.student_dashboard_video{
+    text-align: center;
+    margin: auto;
+}
+
+.student_dashboard_video video
+{
+    border: 5px solid #E25982;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    box-shadow: 0px 0px 20px black;
+    -moz-box-shadow: 0px 0px 20px black;
+    -webkit-box-shadow: 0px 0px 20px black;
+}
+
+ .student_menu_tab_body img:hover {
+  /* Webkit for Chrome and Safari */
+  -webkit-transform: scale(1.1, 1.1); // This is the enlarged size scale of the image.
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-out;
+ 
+  /* Webkit for Mozila Firefox */
+  -moz-transform: scale(1.1, 1.1);
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-out;
+ 
+  /* Webkit for IE( Version: 11, 10 ) */
+  -ms-transform: scale(1.10, 1.10);
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease-out;
+}
+
+.student_menu_tab_body img {
+  /* Webkit for Chrome and Safari */
+  -webkit-transform: scale(1, 1); // This is the scale for the normal size of the image.
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-out;
+ 
+  /* Webkit for Mozila Firefox */
+  -moz-transform: scale(1, 1);
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-out;
+ 
+  /* Webkit for IE( Version: 11, 10 ) */
+  -ms-transform: scale(1, 1);
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease-out;
+}
+
+
+.welcome_cloud:hover {
+  /* Webkit for Chrome and Safari */
+  -webkit-transform: scale(1.1, 1.1); // This is the enlarged size scale of the image.
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-out;
+ 
+  /* Webkit for Mozila Firefox */
+  -moz-transform: scale(1.1, 1.1);
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-out;
+ 
+  /* Webkit for IE( Version: 11, 10 ) */
+  -ms-transform: scale(1.10, 1.10);
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease-out;
+}
+
+.welcome_cloud{
+  /* Webkit for Chrome and Safari */
+  -webkit-transform: scale(1, 1); // This is the scale for the normal size of the image.
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-out;
+ 
+  /* Webkit for Mozila Firefox */
+  -moz-transform: scale(1, 1);
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-out;
+ 
+  /* Webkit for IE( Version: 11, 10 ) */
+  -ms-transform: scale(1, 1);
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease-out;
+}
+
+
+.mid-content{
+    position: relative;
+    z-index:1;
+    overflow:hidden; /*if you want to crop the image*/
+    min-height: 890px;
+    text-align: center;
+}
+
+.mid_images_container
+{
+    margin-top: 30px;
+}
+
+.mid-content:before{
+    z-index:-1;
+    position:absolute;
+    left:0;
+    top:0px;
+    content: url(../images/Bg.png);
+    opacity:0.5;
+}
+.mid-content:after{
+    z-index:-1;
+    position:absolute;
+    left:0;
+    top:980px;
+    content: url(../images/Bg.png);
+    opacity:0.5;
+}
+
+.student_top_menu
+{
+    margin: auto;
+    width:1300px;
+    height: auto;
+}
+
+.student_menu_tabs
+{
+    display: table;
+    margin-top: 20px;
+    margin-left: -40px;
+}
+
+.student_menu_tab
+{
+    display: table-cell;
+}
+.student_menu_tab a
+{
+    text-decoration: none;
+}
+
+.student_menu_tab_body
+{
+    margin-left:150px;
+}
+
+.student_menu_tab_body label
+{
+    font-size: 24px;
+    text-align: center;
+    color: #003399;
+    text-shadow: 2px 2px 6px #949494;
+    font-weight: 600;
+    margin-top: -7px;
+}
+
+.student_menu_tabs img
+{
+    width: 160px;
+    height:160px;
+}
+
+.student_mid_image
+{
+    text-align: center;
+}
+
+.student_mid_image img
+{
+    width: 400px;
+    height: 350px;
+}
+
+.welcome_cloud
+{
+    float:right;
+    width: 300px;
+    height: 300px;
+    margin-top: -380px;
+    margin-right: 140px;
+}
+
+.welcome_cloud label
+{
+    font-size: 36px;
+    font-weight: 600;
+    color:whitesmoke;
+    margin-top: -140px;
+    font-family: jango;
+}
+
+.welcome_cloud label:hover
+{
+    cursor: pointer;
+}
+
+.rankings_container { 
+    width:100% !important;
+    height:630px;
+    margin-left:280px;
+    marin-top:10px;
+ }
+
+.box {    
+    -moz-border-radius:150px;
+    -webkit-border-radius:150px;
+    background-position:0px 0px;
+    background-color:#E23130;
+    position:absolute;
+    background-repeat:no-repeat;
+    float:left;
+//    margin-left: -400px;
+    height:170px;
+    margin:18px;
+    position:absolute;
+    width:170px;
+    padding:5px;
+    display: table-cell;
+    vertical-align: middle;
+    border: #000000 solid medium;
+    //zoom effect
+    /* Webkit for Chrome and Safari */
+  -webkit-transform: scale(1, 1); // This is the scale for the normal size of the image.
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-out;
+ 
+  /* Webkit for Mozila Firefox */
+  -moz-transform: scale(1, 1);
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-out;
+ 
+  /* Webkit for IE( Version: 11, 10 ) */
+  -ms-transform: scale(1, 1);
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease-out;
+}
+
+.box:hover{
+    
+    /* Webkit for Chrome and Safari */
+  -webkit-transform: scale(1.25, 1.25); // This is the enlarged size scale of the image.
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease-out;
+ 
+  /* Webkit for Mozila Firefox */
+  -moz-transform: scale(1.25, 1.25);
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease-out;
+ 
+  /* Webkit for IE( Version: 11, 10 ) */
+  -ms-transform: scale(1.25, 1.25);
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease-out;
+}
+.box_Rank_Number{
+    font-size: 35px;
+   margin-top:40px;
+    margin-bottom:15px;
+   color: #F5D400;
+}
+.box_Student_Name{ 
+    font-size: 20px;
+    margin-bottom:15px;
+    color:#99CC66;
+}
+.box_Student_Points{
+    font-size: 25px;
+    color: silver;
+}
+
+/* DRILLS PAGE CSS */
+.drills-content{
+    background-color: #1E2935;
+    width: auto;
+    min-height: 600px;
+}
+
+.leftpane
+{
+    width:230px;
+    height:400px;
+    padding:20px;
+    float: left;
+    margin-left: 100px;
+    margin-top: -2px;
+}
+
+.topicsbox{
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -webkit-box-shadow:0 0 20px #FFFFFF; 
+    -moz-box-shadow: 0 0 20px #FFFFFF;  
+    box-shadow:0 0 20px #FFFFFF;
+    background-color: #FFFFFF;
+    padding:20px;
+    font-size:18px;
+    color:#444444;
+    margin-top: 10px;
+}
+
+.topicsbox input[type="radio"]
+{
+    margin-bottom: 5px;
+}
+
+.topicsBoxLabel
+{
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 8px;
+}
+
+.topicsbox label
+{
+    font-size: 22px;
+    color:#595959;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-family:  Montserrat;
+}
+
+#radioButtons span
+{
+    font-size: 18px;
+    color:#595959;
+    font-weight: 600;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    word-spacing: 4px;
+    font-family:  myriad-pro;
+}
+
+.rightpane
+{
+    padding-top:1px;
+    padding-bottom:21px;
+    padding-left:370px;
+    width:820px;
+    
+}
+
+.rightpane label
+{
+    font-size: 28px;
+    color:white;
+}
+
+.gamebox{
+    font-size:18px;
+    color:#444444;
+    margin-top: 5px;
+    min-height: 500px;
+}
+
+.gamebox a
+{
+    text-decoration: none;
+}
+.goback_fixed_button img
+{
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+
+.goback_fixed_button
+{
+    width:220px;
+    height:75px;
+    margin: auto;
+    position: fixed;
+    left:205;
+    margin-top:185px; 
+    cursor: pointer;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    border: #bbbbbb ridge medium;
+    -webkit-box-shadow:0 0 8px #FFFFFF; 
+    -moz-box-shadow: 0 0 8px #FFFFFF;  
+    box-shadow:0 0 8px #FFFFFF;
+    -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.goback_fixed_button:hover
+{
+    -webkit-box-shadow:0 0 20px cornsilk; 
+    -moz-box-shadow: 0 0 20px cornsilk;  
+    box-shadow:0 0 20px cornsilk;
+}
+
+#myTip{
+    position:relative;
+    margin-top: -150px;
+}
+
+.student_top_quote
+{
+    border: 1px solid whitesmoke;
+    height:40px;
+    text-align: center;
+    background-color: #D35453;
+    box-shadow: 0px 0px 15px #FFF;
+    -moz-box-shadow: 0px 0px 15px #FFF;
+    -webkit-box-shadow: 0px 0px 15px #FFF;
+}
+
+.student_top_quote label
+{
+    text-shadow: 0px 0px 35px #FFF;
+    -moz-text-shadow: 0px 0px 35px #FFF;
+    -webkit-text-shadow: 0px 0px 35px #FFF;
+    font-size: 18px;
+    font-family: Montserrat;
+    padding-top: 10px;
+    color:#CDD5C6;
+}
+
+.game_row img
+{
+    width:825px;
+    height:240px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+.game_row{
+    width:825px;
+    height:240px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border: #bbbbbb ridge medium;
+    margin-top: 20px;
+    text-align: center;
+}
+
+figure {
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+    border: 3px solid #fff;
+}
+
+figure:hover figcaption {
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
+    top: 0;
+}
+
+figcaption {
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    filter: alpha(opacity=0);
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+            top: -100%;
+    background: rgba(0,0,0,.5);
+    color: #fff;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+    -webkit-transition-delay: .5s;
+    -moz-transition-delay: .5s;
+    -o-transition-delay: .5s;
+    -ms-transition-delay: .5s;
+    transition-delay: .5s;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+figcaption h3 {
+    font-family: 'myriad-pro';
+    font-weight: 800;
+    color: #D04C4C;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    position: relative;
+    left: 100%;
+    margin-top: 37px;
+    font-size: 36px;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    transition: all .5s;
+    -webkit-transition-delay: 1s;
+    -moz-transition-delay: 1s;
+    -o-transition-delay: 1s;
+    -ms-transition-delay: 1s;
+    transition-delay: 1s;
+}
+
+figcaption p {
+    font-family: 'myriad-pro';
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 100%;
+    font-size: 18px;
+    color:#CAFC50;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    transition: all .5s;
+    -webkit-transition-delay: 1.3s;
+    -moz-transition-delay: 1.3s;
+    -o-transition-delay: 1.3s;
+    -ms-transition-delay: 1.3s;
+    transition-delay: 1.3s;
+}
+
+figure:hover h3,figure:hover p {
+    left: 0;
+}
+
+figcaption a {
+    color: #231F20;
+    font-weight: 600;
+    border: 2px solid #000000;
+    padding: 4px 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    background: #45719F;
+}
+
+figcaption a:hover {
+    color: #FFFFFF;
+    background: #D1504F;
+}

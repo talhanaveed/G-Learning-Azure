@@ -1,4 +1,8 @@
-G-Learning-Azure
-================
+G-LEARNING
+==========
 
-Linked with azure site
+**CURRENTLY WORKING ON**
+- Login page (Talha)
+- Dashboard (Haider)
+- Home (Adil)
+- Admin (Zain)
