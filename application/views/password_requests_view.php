@@ -6,12 +6,12 @@ hh    <div class="main_container_general">
     <div class="mid_content_general">
         <div class="right_nav_general">
             <div id="right_nav_general">
-                <a href='http://glearning-test.azurewebsites.net/admin/student'>
+                <a href='http://glearning-test.azurewebsites.net/index.php/admin/student'>
                     <div class="nav_element_top nav_element_default">
                         <label>Student</label>
                     </div>
                 </a>
-                <a href='http://glearning-test.azurewebsites.net/admin/teacher'>
+                <a href='http://glearning-test.azurewebsites.net/index.php/admin/teacher'>
                     <div class="nav_element">
                         <label>Teacher</label>
                     </div>
