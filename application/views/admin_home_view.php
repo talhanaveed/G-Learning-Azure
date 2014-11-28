@@ -12,12 +12,12 @@
                         <label>Student</label>
                     </div>
                 </a>
-                <a href='<?php echo base_url();?>admin/teacher'>
+                <a href='http://glearning-test.azurewebsites.net/admin/teacher'>
                     <div class="nav_element">
                         <label>Teacher</label>
                     </div>
                 </a>
-                <a href='<?php echo base_url();?>admin/passwordRequests'>
+                <a href='http://glearning-test.azurewebsites.net/admin/passwordRequests'>
                     <div class="nav_element_bottom">
                         <label>Password Requests</label>
                     </div>

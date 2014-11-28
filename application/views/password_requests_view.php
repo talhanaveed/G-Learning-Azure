@@ -1,4 +1,4 @@
-    <div class="main_container_general">
+hh    <div class="main_container_general">
     <div class="main_heading_general">
         <label>Admin Portal</label>
     </div>
@@ -6,12 +6,12 @@
     <div class="mid_content_general">
         <div class="right_nav_general">
             <div id="right_nav_general">
-                <a href='<?php echo base_url();?>admin/student'>
+                <a href='http://glearning-test.azurewebsites.net/admin/student'>
                     <div class="nav_element_top nav_element_default">
                         <label>Student</label>
                     </div>
                 </a>
-                <a href='<?php echo base_url();?>admin/teacher'>
+                <a href='http://glearning-test.azurewebsites.net/admin/teacher'>
                     <div class="nav_element">
                         <label>Teacher</label>
                     </div>

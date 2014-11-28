@@ -25,41 +25,41 @@ $(document).ready(function(){
                 </div>
             </div>
             <div class="goback_fixed_button">
-                <a href="<?php echo base_url();?>home/student_dashboard">
-                    <img src="<?php echo base_url();?>/assets/images/back.png" alt="back" />
+                <a href="http://glearning-test.azurewebsites.net/home/student_dashboard">
+                    <img src="http://glearning-test.azurewebsites.net//assets/images/back.png" alt="back" />
                 </a>
             </div>
         </div>
 
         <div class="rightpane">
-            <div class="gamebox">
+            <div class="gamebox"
                 <div class="game_row">
                     <figure>
-                        <img alt="Catchy" src="<?php echo base_url();?>assets/images/catchy-tile.png"/>
+                        <img alt="Catchy" src="http://glearning-test.azurewebsites.net/assets/images/catchy-tile.png"/>
                         <figcaption>
                             <h3>Catchy</h3>
                             <p>Teaches the concept of Even / Odd numbers</p>
-                            <p><a href="<?php echo base_url();?>games/play_cachy_even_odd">Play Game</a></p>
+                            <p><a href="http://glearning-test.azurewebsites.net/games/play_cachy_even_odd">Play Game</a></p>
                         </figcaption>
                     </figure>
                 </div>
                 <div class="game_row">
                     <figure>
-                        <img alt="Catchy" src="<?php echo base_url();?>assets/images/BalloonParty_tile.png"/>
+                        <img alt="Catchy" src="http://glearning-test.azurewebsites.net/assets/images/BalloonParty_tile.png"/>
                         <figcaption>
                             <h3>Balloon Party</h3>
                             <p>Teaches the concept of Highest / Lowest numbers</p>
-                            <p><a href="<?php echo base_url();?>games/balloon_party">Play Game</a></p>
+                            <p><a href="http://glearning-test.azurewebsites.net/games/balloon_party">Play Game</a></p>
                         </figcaption>
                     </figure>
                 </div>
                 <div class="game_row">
                     <figure>
-                        <img alt="Catchy" src="<?php echo base_url();?>assets/images/catchy-tile-2.png"/>
+                        <img alt="Catchy" src="http://glearning-test.azurewebsites.net/assets/images/catchy-tile-2.png"/>
                         <figcaption>
                             <h3>Catchy</h3>
                             <p>Teaches the concept of multiples of a number</p>
-                            <p><a href="<?php echo base_url();?>games/play_cachy_multiples_of_5">Play Game</a></p>
+                            <p><a href="http://glearning-test.azurewebsites.net/games/play_cachy_multiples_of_5">Play Game</a></p>
                         </figcaption>
                     </figure>
                 </div>

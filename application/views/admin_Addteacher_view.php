@@ -7,7 +7,7 @@
     <div class="mid_content_general">
         <div class="right_nav_general">
             <div id="right_nav_general">
-                <a href='<?php echo base_url();?>admin/student'>
+                <a href='http://glearning-test.azurewebsites.net/admin/student'>
                     <div class="nav_element_top">
                         <label>Student</label>
                     </div>
@@ -17,7 +17,7 @@
                         <label>Teacher</label>
                     </div>
                 </a>
-                <a href='<?php echo base_url();?>admin/passwordRequests'>
+                <a href='http://glearning-test.azurewebsites.net/admin/passwordRequests'>
                     <div class="nav_element_bottom">
                         <label>Password Requests</label>
                     </div>
