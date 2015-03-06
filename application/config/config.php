@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://glearning-test.azurewebsites.net/index.php/';
+$config['base_url']	= 'http://glearning-test.azurewebsites.net/';
 /*
 |--------------------------------------------------------------------------
 | Index File
