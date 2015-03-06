@@ -276,3 +276,38 @@ box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
     display: none;
 }
 
+.error-div-success
+{
+    margin: auto;
+    text-align: center;
+    width:380px;
+    margin-top: 120px;
+    border: 1px solid black;
+}
+
+.error-div-failure
+{
+    margin: auto;
+    text-align: center;
+    width:380px;
+    margin-top: 120px;
+    border: 1px solid black;
+}
+
+#js-error-block
+{
+    display: none;
+}
+.success
+{
+    background-color: #99CC66;
+    color: black;
+    padding:5px;
+}
+
+.failure
+{
+    background-color: #D35453;
+    color: white;
+    padding:5px;
+}

@@ -291,7 +291,7 @@
 .drills-content{
     background-color: #1E2935;
     width: auto;
-    min-height: 600px;
+    max-height: 540px;
 }
 
 .leftpane
@@ -413,7 +413,7 @@
 
 #myTip{
     position:relative;
-    margin-top: -150px;
+    top: -150px;
 }
 
 .student_top_quote
@@ -575,4 +575,20 @@ figcaption a {
 figcaption a:hover {
     color: #FFFFFF;
     background: #D1504F;
+}
+
+
+#multiples
+{
+    display:none;
+}
+
+#highest
+{
+    display:none;
+}
+
+#even
+{
+    display:none;
 }

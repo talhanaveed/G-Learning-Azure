@@ -56,7 +56,7 @@
 						break;
 					}
 				});
-				u.initPlugin(jQuery("#unityPlayer")[0], "http://glearning-test.azurewebsites.net/assets/unitygames/Balloon_Party.unity3d");
+				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/Balloon_Party.unity3d");
 			});
 		-->
 		</script>

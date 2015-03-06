@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/G-Learning/';
+$config['base_url']	= 'http://glearning-test.azurewebsites.net/';
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -44,8 +44,8 @@ $config['index_page'] = '';
 |
 */
 
-//$config['uri_protocol']	= 'AUTO';
-$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol']	= 'AUTO';
+//$config['uri_protocol']	= 'REQUEST_URI';
 /*
 |--------------------------------------------------------------------------
 | URL suffix
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'shanijahania';
+$config['encryption_key'] = 'G-Learning';
 
 /*
 |--------------------------------------------------------------------------

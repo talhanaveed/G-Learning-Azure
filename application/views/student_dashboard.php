@@ -1,3 +1,7 @@
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url(); ?>/assets/css/jquery-ui.css">
+<script src="<?php echo base_url(); ?>/assets/js/jquery-1.10.2.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/jquery-ui.js"></script>
+
 <script type="text/javascript">
     function drawCircle(selector, center, radius, angle, x, y) {
       var total = $(selector).length;
@@ -14,6 +18,43 @@
     });
    }
    
+   function showDialog()
+   {
+        $( "#dialog-confirm" ).dialog({
+        resizable: false,
+        height:140,
+        modal: true,
+        buttons: {
+          "Start Test": function() {
+            window.location.href = "<?php echo base_url();?>"+"home/intitial_test";
+          },
+          Cancel: function() {
+            $( this ).dialog( "close" );
+          }
+        }
+      });
+   }
+   
+   function checkLevel()
+   {
+       var baseurl = "<?php print base_url(); ?>";
+        $.ajax({
+            url:  baseurl +"DataEntry/checkLevel",
+            type:'POST',
+            cache:false,
+            dataType: 'html',
+            data: {},
+            success:function(data){
+                if(data == 0)
+                    showDialog();
+                else
+                    window.location.href = "<?php echo base_url();?>"+"home/drills";
+            },
+            error:function(x,e){
+            }
+        }); 
+   }
+   
   $(document).ready(function() {
     var angle = 90;
     drawCircle('.box', 50, 195, angle, 310, 220);
@@ -26,18 +67,21 @@
 //      drawCircle('.box', 50, 200, angle, 310, 220);
 //    });
 
-  });
-  
+  });  
 </script>
+
+<div id="dialog-confirm" title="Get Started..." style='height: 50px !important; display: none;'>
+  <p>Since it's your first time, You must give Initial Test.</p>
+</div>
 
 <div class="student_dashboard_body">
     <div class="mid-content">
         <div class="student_top_menu">
             <div class="student_menu_tabs">
                 <div class="student_menu_tab">
-                    <a href="http://glearning-test.azurewebsites.net/index.php/parents/index/">
+                    <a href="<?php echo base_url();?>parents/index/">
                         <div class="student_menu_tab_body">
-                            <img src="http://glearning-test.azurewebsites.net/assets/images/galley.png"/>
+                            <img src="<?php echo base_url();?>assets/images/galley.png"/>
                             <label>Parents</label>
                         </div>
                     </a>
@@ -45,7 +89,7 @@
                 <div class="student_menu_tab">
                     <a href="#ranks">
                         <div class="student_menu_tab_body">
-                            <img src="http://glearning-test.azurewebsites.net/assets/images/galley.png"/>
+                            <img src="<?php echo base_url();?>assets/images/galley.png"/>
                             <label>Ranks</label>
                         </div>  
                     </a>
@@ -53,16 +97,16 @@
                 <div class="student_menu_tab">
                     <a href="#video">
                         <div class="student_menu_tab_body">
-                            <img src="http://glearning-test.azurewebsites.net/assets/images/video.png"/>
+                            <img src="<?php echo base_url();?>assets/images/video.png"/>
                             <label>Videos</label>
                         </div>
                     </a>
                 </div>
                 <div class="student_menu_tab">
-                    <a href="http://glearning-test.azurewebsites.net/index.php/home/drills/">
+                    <a href="<?php echo base_url();?>login/logout">
                         <div class="student_menu_tab_body">
-                            <img src="http://glearning-test.azurewebsites.net/assets/images/games.png"/>
-                            <label>Games</label>
+                            <img src="<?php echo base_url();?>assets/images/games.png"/>
+                            <label>Logout</label>
                         </div>
                     </a>
                 </div>
@@ -72,11 +116,12 @@
         <div class="mid_images_container">
             <div class="student_mid_image">
                 <br/><br/>
-                <img src="http://glearning-test.azurewebsites.net/assets/images/doggy.png"/>
+                <img src="<?php echo base_url();?>assets/images/doggy.png"/>
             </div>
-            <a href="http://glearning-test.azurewebsites.net/index.php/home/drills/">
+             
+            <a href="#" id="playButton" onclick="checkLevel();">
                 <div class="welcome_cloud">
-                    <img src="http://glearning-test.azurewebsites.net/assets/images/cloud2.png"/>
+                    <img src="<?php echo base_url();?>assets/images/cloud2.png"/>
                     <label>Let's Play Friend</label>
                 </div>
             </a>
@@ -92,7 +137,7 @@
         
         <div class="student_dashboard_video" id="video">            
             <video width="640" height="360" controls>
-                <source src="http://glearning-test.azurewebsites.net//assets/videos/play.mp4" type="video/mp4">
+                <source src="<?php echo base_url();?>/assets/videos/play.mp4" type="video/mp4">
                 <source src="movie.ogg" type="video/ogg">
                     Your browser does not support the video tag.
             </video>

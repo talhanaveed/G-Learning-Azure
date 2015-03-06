@@ -14,7 +14,7 @@
         <section>
             <div id="intro" class=" fullwidth div_center" >
                 <Br/><br/><br/><br/><br/><br/>
-                <p class="homepage-headers left"><img  src='http://glearning-test.azurewebsites.net/assets/images/intro.png' class='gif-headers intro_thumbnail'> What is G-Learning ?</p>
+                <p class="homepage-headers left"><img  src='<?php echo base_url();?>assets/images/intro.png' class='gif-headers intro_thumbnail'> What is G-Learning ?</p>
                 <div class="intro_text_container ">
                     <p class="intro_text">" G-learning is a modern project to cope up with the need of integrating computing with education 
                         and using the ultimate advantage of games pleasure to teach various concepts to the students.
@@ -29,12 +29,12 @@
         <section>
              <div id="features" class="fullwidth div_center" >
              <Br/><br/><br/><br/><br/><br/>
-            <p class="homepage-headers left"><img src='http://glearning-test.azurewebsites.net/assets/images/features_h.png' class='gif-headers features_thumbnail'> What Makes It Useful ?
+            <p class="homepage-headers left"><img src='<?php echo base_url();?>assets/images/features_h.png' class='gif-headers features_thumbnail'> What Makes It Useful ?
             <div id="features_list">
                 <ul>
                      <li>
                         <div>
-                            <img width="100" height="100" src="http://glearning-test.azurewebsites.net//assets/images/techf.png" alt="Picture">
+                            <img width="100" height="100" src="<?php echo base_url(); ?>/assets/images/techf.png" alt="Picture">
                         </div>
                         <div>
                             <h3> Easily Accessbile</h3>
@@ -43,7 +43,7 @@
                     </li>
                      <li>
                         <div>
-                            <img width="100" height="100" src="http://glearning-test.azurewebsites.net//assets/images/wwwf.png" alt="Picture">
+                            <img width="100" height="100" src="<?php echo base_url(); ?>/assets/images/wwwf.png" alt="Picture">
                         </div>
                         <div>
                             <h3> Worldwide Access</h3>
@@ -52,7 +52,7 @@
                     </li>
                      <li>
                         <div>
-                            <img width="100" height="100" src="http://glearning-test.azurewebsites.net//assets/images/gamesf.png" alt="Picture">
+                            <img width="100" height="100" src="<?php echo base_url(); ?>/assets/images/gamesf.png" alt="Picture">
                         </div>
                         <div>
                             <h3>Interactive Games</h3>
@@ -61,7 +61,7 @@
                     </li>
                     <li>
                         <div>
-                            <img width="100" height="100" src="http://glearning-test.azurewebsites.net//assets/images/reportsf.png" alt="Picture">
+                            <img width="100" height="100" src="<?php echo base_url(); ?>/assets/images/reportsf.png" alt="Picture">
                         </div>
                         <div>
                             <h3>Detailed Progress Reports</h3>
@@ -76,34 +76,34 @@
         <section>
              <div id="team-info" class='fullwidth div_center'>
             <Br/><br/><br/><br/><br/><br/>
-            <p class='homepage-headers left'><img src='http://glearning-test.azurewebsites.net/assets/images/23.png' class='gif-headers team_thumbnail'> Our Team</p>
+            <p class='homepage-headers left'><img src='<?php echo base_url();?>assets/images/23.png' class='gif-headers team_thumbnail'> Our Team</p>
         <ul class='team center' id="team_thumbnails">
             
             <li>
                 <h2>Zain Malik</h2>
               <a href="#">
-                <img id="team21" src='http://glearning-test.azurewebsites.net/assets/images/zain1.png' class='portfolio_pic'/>
+                <img id="team21" src='<?php echo base_url();?>assets/images/zain1.png' class='portfolio_pic'/>
               
               </a>
             </li>
              <li>
                  <h2>Adil Sarwar</h2>
               <a href="#">
-                <img id="team11" src='http://glearning-test.azurewebsites.net/assets/images/adi1.png' class='portfolio_pic'/>
+                <img id="team11" src='<?php echo base_url();?>assets/images/adi1.png' class='portfolio_pic'/>
               
               </a>
             </li>
             <li>
                 <h2>Haider Rasool</h2>
               <a href="#">
-                <img id="team31" src='http://glearning-test.azurewebsites.net/assets/images/haider1.png' class='portfolio_pic'/>
+                <img id="team31" src='<?php echo base_url();?>assets/images/haider1.png' class='portfolio_pic'/>
               
               </a>
             </li>
             <li>
                 <h2>Talha Naveed</h2>
               <a href="#">
-                <img id="team41" src='http://glearning-test.azurewebsites.net/assets/images/talha1.png' class='portfolio_pic'/>
+                <img id="team41" src='<?php echo base_url();?>assets/images/talha1.png' class='portfolio_pic'/>
               
               </a>
             </li>
@@ -115,7 +115,7 @@
         <section>
             <div id="contactus" class='fullwidth div_center'>
                 <Br/><br/><br/><br/><br/><br/>
-                <p class='homepage-headers left'><img src='http://glearning-test.azurewebsites.net/assets/images/contactus_thumb.png' class='gif-headers contactus_thumbnail'> Need Our help ?</p>
+                <p class='homepage-headers left'><img src='<?php echo base_url();?>assets/images/contactus_thumb.png' class='gif-headers contactus_thumbnail'> Need Our help ?</p>
                 <div class="container">
                     <div>
                   <div class="col-md-12">

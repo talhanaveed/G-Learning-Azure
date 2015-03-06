@@ -56,7 +56,7 @@
 						break;
 					}
 				});
-				u.initPlugin(jQuery("#unityPlayer")[0], "http://glearning-test.azurewebsites.net/assets/unitygames/webcatchy.unity3d");
+				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/webcatchy.unity3d");
 			});
 		-->
 		</script>

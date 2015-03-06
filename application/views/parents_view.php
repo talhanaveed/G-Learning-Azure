@@ -1,4 +1,4 @@
-a<div class="main_container_general">
+<div class="main_container_general">
     <div class="main_heading_general">
         <label>Parents Portal</label>
     </div>
@@ -170,15 +170,15 @@ function loadApp() {
 // Load the HTML4 version if there's not CSS transform
 yepnope({
 	test : Modernizr.csstransforms,
-	yep: ['http://glearning-test.azurewebsites.net//assets/js/turn.js'],
-	nope: ['http://glearning-test.azurewebsites.net//assets/js/turn.html4.min.js'],
-	both: ['http://glearning-test.azurewebsites.net//assets/css/basic.css'],
+	yep: ['<?php echo base_url();?>/assets/js/turn.js'],
+	nope: ['<?php echo base_url();?>/assets/js/turn.html4.min.js'],
+	both: ['<?php echo base_url();?>/assets/css/basic.css'],
 	complete: loadApp
 });
 </script>
 
-<script>window.jQuery || document.write('<script src="http://glearning-test.azurewebsites.net//assets/js/jquery-1.11.0.min.js"><\/script>')</script>	
-<script src="http://glearning-test.azurewebsites.net//assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>window.jQuery || document.write('<script src="<?php echo base_url();?>/assets/js/jquery-1.11.0.min.js"><\/script>')</script>	
+<script src="<?php echo base_url();?>/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script>
     (function($){
             $(window).load(function(){
