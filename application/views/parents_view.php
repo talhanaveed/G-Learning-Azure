@@ -1,16 +1,61 @@
+<link href="<?php echo base_url();?>assets/css/normalize.css" rel="stylesheet" type="text/css">
+<link href="<?php echo base_url();?>assets/css/nav_menu.css" rel="stylesheet" type="text/css">
+<!--Navigation panel script-->
+<script type="text/javascript">
+(function ($, window, document, undefined) {
+    $(function () {
+        var $navigation = $('#navigation'), $navToggler = $('#navToggler');
+        $('#navToggler').on('click', function (e) {
+            e.preventDefault();
+            $navigation.toggleClass('expanded');
+        });
+    });
+}(jQuery, this, this.document));
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 <div class="main_container_general">
     <div class="main_heading_general">
         <label>Parents Portal</label>
     </div>
+    <div class='page'>
+            <div class="navigation" id="navigation">
+                <a class="nav-toggler" href="#" id="navToggler">
+                    <span class="show-nav">&#9776;</span>
+                    <span class="hide-nav">&times;</span>
+                </a>
+                <div class="navigation__inner">
+                    <ul>
+                        <li>
+                            <h2>Menu</h2>
+                        </li>
+                       <li><a class="current" href="#">Parent Portal</a></li>
+                        <!--<li class="separator"></li>-->
+                        <li><a href="<?php echo base_url();?>login/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+	</div>  
+    
     <div class="mid_content_general">
         <div class="flipbook-viewport">
             <div class="container">
 		<div class="flipbook">
                     <div class="book_main_page">
                         <div class="report_card_heading">
-                            <label class="school_name">National University of Computer & Emerging Sciences</label>
-                            <label class="report_name">Report Card</label>
-                            <label class="student_name">Zain Malik</label>
+                            <label class="school_name">National University of Computer & Emerging Sciences</label><br/>
+                            <label class="report_name">Report Card</label><br/>
+                            <label class="student_name"><?php echo $name;?></label>
                         </div>
                     </div>
                     <div class="assignment_list">

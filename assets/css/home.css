@@ -21,6 +21,7 @@ time, mark, audio, video ,header {
 	font: inherit ;
 	vertical-align: central;
 }
+
 /* HTML5 display-role reset for older browsers */
 @font-face {
     font-family: "Montserrat";
@@ -60,9 +61,13 @@ table {
 }
 
 html ,body{
-    width:1340px;
+ //   width:1340px;
     padding:0;
     margin:auto;
+    
+    height:100%;    //for header_image
+    padding:0;
+    margin:0;
 }
 
 .header_studentdashboard {
@@ -73,8 +78,9 @@ html ,body{
 
 body {
     font: 14px/24px Tahoma, Geneva, sans-serif !important;
-    width:1340px ;
+  //  width:1340px ;
     margin:auto !important;
+    background: whitesmoke; 
 }
 
 .main-header {
@@ -283,7 +289,34 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d6db', end
     z-index:40000;
     position: absolute;
 }
-
+#headfoot{
+    width: 100%;
+    background-color: #fff7d9;  //old: #1E2935; 
+}
+#footer_new
+{
+    width: 100%;
+    height: 130px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(255, 255, 255);
+    margin: -129px auto 0px;
+    overflow: hidden;
+    display: block;
+    z-index: 10;
+    position: relative;
+    text-align: center;
+}
+#footertext{
+    width: 980px;
+    height: 90px;
+    color: rgb(255, 255, 255);
+    margin: 20px auto 0px;
+    text-align: center;
+    display: block;
+    z-index: 12;
+    position: relative;
+    opacity: 1;
+}
 #center_footer{
     background:#000;
     height: 130px;
@@ -342,6 +375,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d6db', end
     margin: auto;
     height: auto;
 }
+.main_container_general_teacher
+{
+    width:1340px;
+    margin: 40px auto auto auto;
+    height: auto;
+}
+
 
 .main_heading_general
 {
@@ -367,6 +407,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d6db', end
     background-color: #FFF7D9;
     min-height: 500px;
     width:1340px;
+    overflow: auto;
 }
 
 .right_nav_general
@@ -1213,6 +1254,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffee72', end
     
 }
 
+.header_image{
+    width: 100%;
+ //   min-height:150px;
+    height: 55%;
+    z-index: 1;
+    background-image: url(../images/header.png);
+    background-size: 100%;
+    background-repeat: repeat-x;
+    clear: both;
+    float: none;
+    overflow: hidden;
+    background-color: #fff7d9;  //old: #1E2935; 
+}
 
 .main-header_new {
     width:inherit;
@@ -1388,15 +1442,10 @@ z-index:1000;
     display: inline;
 }
 .teacher_mid_right{
-    float:left;
-    margin-top: 5px;
+    margin:auto;
     height: 650px;
     max-height:650px;
-    display: inline-block;
     width:74%;
-    border-top: #f73f3f solid thick;
-    border-bottom : #f73f3f solid thick;
-    background-color:#fceabb;
     overflow: auto;
 }
 .no_option_seleted{
@@ -1575,12 +1624,14 @@ z-index:1000;
 .questions_wrapper_update{
     width:100%;
     height:auto;
+    overflow: hidden;
 }
 .add_question_teacher{
     height:120px;
     width:100%;
     margin-top:5px;
     margin-bottom:5px;
+    float: left;
 }
 .question_leftside{
     width:55%;
@@ -1706,7 +1757,7 @@ z-index:1000;
 {
     margin: auto;
 //    width:915px;
-    width:600px;
+    width:545px;
     height:80px;
     
 }
@@ -1745,14 +1796,24 @@ z-index:1000;
     background-color: #9bba1f;
     text-align: center;
 }
-.student_block_long h1{
-    
+.student_block_long_heading{
+    height:80px;
+    float:left;
+    display:inline-block;
+    width:270px;
+    border: #f73f3f solid thin;
+    background-color: #f73f3f;
+    text-align: center;
+}
+.student_block_long_heading label
+{
     line-height:80px;
     font-size: 30px;
     font-weight: bolder;
     color:#fafafa;
     background-color: #f73f3f;
     font-family: Montserrat;
+    
 }
 .student_block_long label{
     line-height:80px;

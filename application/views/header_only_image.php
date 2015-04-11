@@ -36,28 +36,8 @@
     <script src="<?php echo base_url(); ?>/assets/js/jquery-2.0.3.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/jquery-1.10.2.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/jquery-2.1.1.min.js"></script>
-    <script>   
-  
-        $(document).ready(function() { 
-            $(".grey_icon_nav").hover(
-                        function(){
-                            $(".grey_icon_img").slideUp();
-                               $("#grey_icon_desc").slideDown();
-                        },
-                        function(){
-                             $(".grey_icon_img").slideDown();
-                               $("#grey_icon_desc").slideUp();
-                        }
-                    );     
-        
-    });
-    </script>
+    
 </head>
 <body>
-    <header class="main-header_new">
-            <span class="logo_span left">
-                <img class="logo" src ="<?php echo base_url(); ?>/assets/images/G-Learn.png" width="220" />
-            </span>
-        
-</header>
-
+    <div class="header_image">
+    </div>

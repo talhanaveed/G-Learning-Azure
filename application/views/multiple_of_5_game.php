@@ -14,6 +14,7 @@
 		</script>
 		<script type="text/javascript">
 		<!--
+                        var mylevel = <?php echo $level;?>;
 			var config = {
 				width: 960, 
 				height: 600,
@@ -58,6 +59,29 @@
 				});
 				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/Catchy_Multiples_of_5.unity3d");
 			});
+                        function updateRange()
+				{
+                                //    alert("Range");
+                                    if(mylevel==1)
+                                    {
+                                        u.getUnity().SendMessage("GameManager", "updateMultiplesof", "3");
+                                    }
+
+                                    if(mylevel==2)
+                                    {
+                                        u.getUnity().SendMessage("GameManager", "updateMultiplesof", "5");
+                                    }
+
+                                    if(mylevel==3)
+                                    {
+                                        u.getUnity().SendMessage("GameManager", "updateMultiplesof", "7");  
+                                    }
+                                }
+                            function UnityCall( arg )
+				{
+                                    //    alert( arg );
+				    updateRange();
+				}
 		-->
 		</script>
 		<style type="text/css">

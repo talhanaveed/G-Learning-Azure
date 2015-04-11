@@ -258,7 +258,7 @@
             
             var baseurl = "<?php print base_url(); ?>";
             $.ajax({
-                url:  baseurl +"/DataEntry/updateLevel",
+                url:  baseurl +"DataEntry/updateLevel",
                 type:'POST',
                 cache:false,
                 dataType: 'html',
@@ -296,7 +296,7 @@
                             <p><?php echo $q_array[$q_no][0]?> </p>
                         </div>
                         <div class='question_options_tab'>
-                            <input type="radio" name="option" value="<?php echo $q_array[$q_no][1]?>" ><label><?php echo $q_array[$q_no][1]?></label>
+                            <input type="radio" name="option" value="<?php echo $q_array[$q_no][1]?>" checked><label><?php echo $q_array[$q_no][1]?></label>
                         </div>
                         <div class='question_options_tab'>
                             <input type="radio" name="option" value="<?php echo $q_array[$q_no][2]?>" ><label><?php echo $q_array[$q_no][2]?></label>

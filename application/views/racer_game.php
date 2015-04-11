@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>G-Learning | Catchy</title>
+		<title>Unity Web Player | Racer</title>
 		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
 		<script type="text/javascript">
 		<!--
@@ -10,17 +10,20 @@
 		if (document.location.protocol == 'https:')
 			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
 		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+	
 		-->
 		</script>
 		<script type="text/javascript">
 		<!--
-                        var mylevel = <?php echo $level;?>;
+		    var mylevel = <?php echo $level;?>;
+		    var mode = "<?php echo $mode;?>";
 			var config = {
 				width: 960, 
 				height: 600,
 				params: { enableDebugging:"0" }
 				
 			};
+			config.params["disableContextMenu"] = true; //This is the added line
 			var u = new UnityObject2(config);
 
 			jQuery(function() {
@@ -57,34 +60,41 @@
 						break;
 					}
 				});
-				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/webcatchy.unity3d");
+				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/Racer.unity3d");
 			});
-                            function updateRange()
-				{
-                                //    alert("Range");
-                                    if(mylevel==1)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "1");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "20");
-                                    }
 
-                                    if(mylevel==2)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "20");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "50");
+				     function log(msg) {
+                                        setTimeout(function() {
+                                            throw new Error(msg);
+                                        }, 0);
                                     }
+            function updateRange()
+                {
 
-                                    if(mylevel==3)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "50");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "99");    
-                                    }
-                                }
-                            function UnityCall( arg )
-				{
-                                    //    alert( arg );
-				    updateRange();
-				}
+                  
+                    u.getUnity().SendMessage("NumberManager", "setMode", mode);
+                //  alert("Range")
+                    if(mylevel==1)
+                        u.getUnity().SendMessage("NumberManager", "setRange", "10");
+                    
+                    if(mylevel==2)
+                        u.getUnity().SendMessage("NumberManager", "setRange", "30");
+                    
+                    if(mylevel==3)
+                        u.getUnity().SendMessage("NumberManager", "setRange", "50");    
+
+                
+                 }
+                function SayHello( arg )
+                {
+                    log(arg);
+                    updateRange();
+                }
+                                
+                function endGame( arg )
+                {
+                    window.location.href = "<?php echo base_url();?>"+"games/shootEmUp";
+                }
 		-->
 		</script>
 		<style type="text/css">
@@ -143,7 +153,7 @@
 		</style>
 	</head>
 	<body>
-		<p class="header"><span>Unity Web Player | </span>Catchy</p>
+		<p class="header"><span>Unity Web Player | </span>Racer</p>
 		<div class="content">
 			<div id="unityPlayer">
 				<div class="missing">

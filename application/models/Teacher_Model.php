@@ -51,16 +51,15 @@ class Teacher_Model extends CI_Model {
                 return 0;
             }
     }
-    function delete_assessment($assess_name)    //Note: remember to put cascading option in db
+    function delete_assessment($assess_name,$school_id,$teacher_id)    //Note: remember to put cascading option in db
     {
             $this->db->where('assessment_name', $assess_name);
-            $query = $this->db->delete('assessment');
-
-            if($query)
-                return 1;
-            else
-                return 0;
+            $this->db->where('school_id', $school_id);
+            $this->db->where('teacher_id', $teacher_id);
+            $this->db->delete('assessment');
+            return $this->db->affected_rows();
     }
+    
     function get_all_students($school_id , &$j)
     {
        $this->db->select('person.person_id,first_name,last_name,email');
@@ -96,19 +95,23 @@ class Teacher_Model extends CI_Model {
         
     }
     
-    function search_assessment($assess_name,$school_id)
+    function search_assessment($assess_name,$school_id,$teacher_id)
     {
         $this->db->where('assessment_name', $assess_name);
         $this->db->where('school_id', $school_id);
+        $this->db->where('teacher_id', $teacher_id);
         $this->db->from('assessment');
         $query = $this->db->get();
-        
-        if($query->num_rows == 1)
-        {
-            $row = $query->row();
-            return $row->assessment_id;
+        if($query){
+            if($query->num_rows == 1)
+            {
+                $row = $query->row();
+                return $row->assessment_id;
+            }else{
+                return -1;
+            }
         }else{
-            return -1;
+                return -1;
         }
     }
     
@@ -160,5 +163,20 @@ class Teacher_Model extends CI_Model {
         }else{
             return 0;
         }
+    }
+    function sendPassRequest($username, $date)
+    {
+        $requestData = array(
+            'username' => $username,
+            'request_date' => $date
+            
+        );
+
+       $result=$this->db->insert('password_requests',$requestData);
+       if($result)
+           return true;
+       else 
+            return false;
+       
     }
 }

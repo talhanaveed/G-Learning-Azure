@@ -15,7 +15,7 @@ font-size: 15px;
 line-height: 20px;
 color: #33393d;
 margin: 0;
-opacity:0;
+opacity:1;
 background: #f2f6f8; /* Old browsers */
 background: -moz-linear-gradient(top,  #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f6f8), color-stop(50%,#d8e1e7), color-stop(51%,#b5c6d0), color-stop(100%,#e0eff9)); /* Chrome,Safari4+ */
@@ -66,7 +66,7 @@ width: 385px;
 padding: 30px 15px;
 margin: 0;
 font-size: 18px;
-color: #fff;
+
 background-color: #9b9b97;
 background-color: rgba(0,0,0,.15);
 outline: 0;
@@ -278,19 +278,19 @@ box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
 
 .error-div-success
 {
-    margin: auto;
+    
     text-align: center;
-    width:380px;
-    margin-top: 120px;
+    
+   
     border: 1px solid black;
 }
 
 .error-div-failure
 {
-    margin: auto;
+    
     text-align: center;
-    width:380px;
-    margin-top: 120px;
+    
+   
     border: 1px solid black;
 }
 
@@ -310,4 +310,98 @@ box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
     background-color: #D35453;
     color: white;
     padding:5px;
+}
+
+#login-header
+{
+    background:F0F0F0;
+}
+
+
+
+*{margin:0;padding:0;}
+
+body{
+  background:#567;
+  font-family:'Open Sans',sans-serif;
+}
+
+.button{
+  width:100px;
+  background:#3399cc;
+  display:block;
+  margin:0 auto;
+  margin-top:1%;
+  padding:10px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+.button:hover{
+  background:#2288bb;
+}
+
+#login{
+  width:400px;
+  margin:0 auto;
+  margin-top:8px;
+  margin-bottom:2%;
+  transition:opacity 1s;
+  -webkit-transition:opacity 1s;
+}
+
+#triangle{
+  width:0;
+  border-top:12x solid transparent;
+  border-right:12px solid transparent;
+  border-bottom:12px solid #3399cc;
+  border-left:12px solid transparent;
+  margin:0 auto;
+}
+
+#login h1{
+  background:#3399cc;
+  padding:20px 0;
+  
+  font-size:140%;
+  font-weight:300;
+  text-align:center;
+  
+}
+
+form{
+  background:#f0f0f0;
+  padding:6% 4%;
+}
+
+input[type="email"],input[type="password"]{
+  width:92%;
+  background:#fff;
+  margin-bottom:4%;
+  border:1px solid #ccc;
+  padding:4%;
+  font-family:'Open Sans',sans-serif;
+  font-size:95%;
+  color:#555;
+}
+
+input[type="submit"]{
+  width:100%;
+  background:#3399cc;
+  border:0;
+  padding:4%;
+  font-family:'Open Sans',sans-serif;
+  font-size:100%;
+  
+  cursor:pointer;
+  transition:background .3s;
+  -webkit-transition:background .3s;
+}
+
+input[type="submit"]:hover{
+  background:#2288bb;
 }

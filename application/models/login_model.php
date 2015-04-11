@@ -13,9 +13,43 @@ class login_model extends CI_Model {
         parent::__construct(); 
     }
     
-    public function checkLogin($username,$password)
+    public function checkLoginParent($username, $password, $type)
     {
         $this->db->where('username', $username);
+        $query = $this->db->get('login');
+        if ($query->num_rows == 1)
+        {
+            $row = $query->row();
+            $NewPassword = $this->encrypt->decode($row->parent_password);
+            if($password == $NewPassword)
+            {
+                $type = $row->type;
+                $this->session->set_userdata('person_id',$row->person_id);
+                $this->session->set_userdata('school_id',$row->school_id);
+                $this->session->set_userdata('username',$row->username);
+                $person_id = $row->person_id;
+                $this->db->where('person_id', $person_id);
+                $query1 = $this->db->get('person');
+                
+                if ($query1->num_rows == 1){
+                    $row1 = $query1->row();
+                    $this->session->set_userdata('Namesss',$row1->first_name.' '.$row1->last_name);
+                    return false;
+                }
+                
+            }
+            else
+                return "N1";
+        }
+        else
+            return "N2";
+        
+    }
+    
+    public function checkLogin($username,$password,$type)
+    {
+        $this->db->where('username', $username);
+        $this->db->where('type', $type);
         $query = $this->db->get('login');
         if ($query->num_rows == 1)
         {
@@ -25,6 +59,10 @@ class login_model extends CI_Model {
             {
                 $type = $row->type;
                 $this->session->set_userdata('person_id',$row->person_id);
+                $this->session->set_userdata('school_id',$row->school_id);
+                $this->session->set_userdata('username',$row->username);
+        
+                
                 if($type == "student")
                     return "student";
                 else if($type == "teacher")

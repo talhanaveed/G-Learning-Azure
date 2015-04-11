@@ -1,6 +1,30 @@
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url(); ?>/assets/css/jquery-ui.css">
 <script src="<?php echo base_url(); ?>/assets/js/jquery-1.10.2.js"></script>
 <script src="<?php echo base_url(); ?>/assets/js/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url(); ?>/assets/css/alertify.core.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url(); ?>/assets/css/alertify.default.css">
+    <script src="<?php echo base_url(); ?>/assets/js/alertify.js"></script>
+    <script src="<?php echo base_url(); ?>/assets/js/alertify.min.js"></script>
+    
+
+<script>
+    function ChangePassword()
+    {
+        var baseurl = "<?php print base_url(); ?>";
+            $.ajax({
+                url:  baseurl +"DataEntry/sendPasswordRequest",
+                type:'POST',
+                cache:false,
+                dataType: 'html',
+                data: {},
+                success:function(data){
+                    alertify.error("Request Sent");
+                },
+                error:function(x,e){
+                }
+            }); 
+    }
+</script>
 
 <script type="text/javascript">
     function drawCircle(selector, center, radius, angle, x, y) {
@@ -79,10 +103,10 @@
         <div class="student_top_menu">
             <div class="student_menu_tabs">
                 <div class="student_menu_tab">
-                    <a href="<?php echo base_url();?>parents/index/">
+                    <a onclick="ChangePassword();" href="#">
                         <div class="student_menu_tab_body">
                             <img src="<?php echo base_url();?>assets/images/galley.png"/>
-                            <label>Parents</label>
+                            <label>Change Password</label>
                         </div>
                     </a>
                 </div>

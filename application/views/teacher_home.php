@@ -1,4 +1,24 @@
-
+<link href="<?php echo base_url();?>assets/css/normalize.css" rel="stylesheet" type="text/css">
+<link href="<?php echo base_url();?>assets/css/nav_menu.css" rel="stylesheet" type="text/css">
+<script>
+    function ChangePassword()
+    {
+        var baseurl = "<?php print base_url(); ?>";
+            $.ajax({
+                url:  baseurl +"DataEntry/sendPasswordRequest",
+                type:'POST',
+                cache:false,
+                dataType: 'html',
+                data: {},
+                success:function(data){
+                    
+                        alertify.error("Request Sent");
+                },
+                error:function(x,e){
+                }
+            }); 
+    }
+</script>
 
 <div class="main_container_general">
  
@@ -18,28 +38,39 @@
         </div>
     </div>
     <div class="start_work_teacher">
-<!--        href="#workstation"-->
         <button onclick="return start_work_click();" class="btn_teacher">Start Working</button>
     </div>
-    <div class="mid_content_teacher" id="workstation" >
-        <div class="teacher_mid_left">
-            <div id="add_assessment" class="teacher_option_tab" onclick="return AddAssessment();">
-                <Label>Add Assessment</Label>
+    
+<div class="main_container_general_teacher" id="main_teacher">
+    <div class="main_heading_general">
+        <label>Teacher Portal</label>
+    </div>
+  <div class="mid_content_general">
+    <div class='page'>
+            <div class="navigation" id="navigation">
+                <a class="nav-toggler" href="#" id="navToggler">
+                    <span class="show-nav">&#9776;</span>
+                    <span class="hide-nav">&times;</span>
+                </a>
+                <div class="navigation__inner">
+                    <ul>
+                        <li>
+                            <h2>Menu</h2>
+                        </li>
+<!--                        <li><a class="current" href="#">Add Assessment</a></li>-->
+                        <li onclick="return AddAssessment();"><a href="#main_teacher">Add Assessment</a></li>
+                        <li onclick="return EditAssessment();"><a href="#main_teacher">Edit Assessment</a></li>
+                        <li onclick="return DeleteAssessment();"><a href="#main_teacher">Delete Assessment</a></li>
+                        <li ><a href="<?php echo base_url();?>DataEntry/ViewStudents">View Student</a></li>
+                        <li onclick="return ChangePassword();"><a href="#main_teacher">Change Password</a></li>
+                        <!--<li class="separator"></li>-->
+                        <li><a href="<?php echo base_url();?>login/logout">Logout</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="edit_assessment" class="teacher_option_tab" onclick="return EditAssessment();">
-                <Label>Edit Assessment</Label>
-            </div>
-            <div id="delete_assessment" class="teacher_option_tab" onclick="return DeleteAssessment();">
-                <Label>Delete Assessment</Label>
-            </div>
-            <div id="view_students" class="teacher_option_tab" onclick="return ViewStudents();">
-                <Label>View Students</Label>
-            </div>
-        </div>
-        <div class="teacher_mid_right" id="teacher_mid_right">
-            <div id="no_option_seleted" class="no_option_seleted">
-                <label> Select an Option from the left in order to start work!</label>
-            </div>
+	</div>    
+        
+    <div class="teacher_mid_right" id="teacher_mid_right">
             <div  class="add_assessment_div" id="add_assessment_div">
                 <div class="heading_teacher">
                     <h1>Add Assessment</h1>
@@ -165,16 +196,26 @@
 <!--                        <div class="student_block">
                             <h1>Ranking</h1>
                         </div>-->
-                        <div class="student_block_long">
-                            <h1>Name</h1>
+                    <?php if($scroll_to_div=="view_student" && $no_of_students==0)
+                        { ?>
+                        <div class="student_block_long_heading">
+                            <label>You Have ---></label>
                         </div>
-                        <div class="student_block_long">
-                            <h1>Email</h1>
+                        <div class="student_block_long_heading">
+                            <label>Zero Students</label>
                         </div>
-<!--                        <div class="student_block">
-                            <h1>Score</h1>
-                        </div>-->
+                    <?php 
+                    }else{ ?>
+                        <div class="student_block_long_heading">
+                            <label>Name</label>
+                        </div>
+                        <div class="student_block_long_heading">
+                            <label>Email</label>
+                        </div>   
+                    <?php 
+                        }?>
                     </div>
+                    <?php if($scroll_to_div=="view_student") {?>
                     <?php    for($k=0 ;$k<$no_of_students;$k++)
                             { ?>
                             <div class="student_view_tab">
@@ -193,14 +234,11 @@
                             </div>
                     
                       <?php 
-                        } ?>
+                        }} ?>
                 </div>
+              </div>
             </div>
         </div>
-    </div>
-    
-</div>
-
 <script type="text/javascript">
     var question_number;    //teep track of no. of questions in add_assessment div
     var question_limit =5;  //limit on no. of questions in add_assessment div
@@ -208,7 +246,6 @@
     function codeAddress() //runs every time on page load
     {
         question_number=0;
-        $("#add_assessment_div").hide();
         $("#edit_assessment_div").hide();
         $("#delete_assessment_div").hide();
         $("#view_students_div").hide();
@@ -229,7 +266,13 @@
                 alertify.error("Assessment Deleted");
                 start_work_click();
                 DeleteAssessment();
-            
+                
+         <?php }else if($scroll_to_div == "delete_failed")
+                 { ?>
+                alertify.error("Assessment not Found");
+                start_work_click();
+                DeleteAssessment();
+                
         <?php }else if($scroll_to_div == "edit_assess_search_match")
                  { ?>
                 alertify.error("Assessment Found");
@@ -250,6 +293,12 @@
                 alertify.error("Assessment not updated");
                 start_work_click();
                 EditAssessment();
+         <?php }else if($scroll_to_div == "view_student")
+                 { ?>
+                alertify.error("Students Loaded");
+                start_work_click();
+                ViewStudents();       
+                
         <?php } ?>
             
             
@@ -260,17 +309,8 @@
     function start_work_click()
     {
         $('html,body').animate({
-        scrollTop: $(".mid_content_teacher").offset().top},
+        scrollTop: $(".main_container_general_teacher").offset().top},
         'slow');
-        return true;
-    }
-    
-    function unselect_alltabs()
-    {
-        $("#add_assessment").removeClass().addClass("teacher_option_tab");
-        $("#edit_assessment").removeClass().addClass("teacher_option_tab");
-        $("#delete_assessment").removeClass().addClass("teacher_option_tab");
-        $("#view_students").removeClass().addClass("teacher_option_tab");
         return true;
     }
     function hide_alldivs()
@@ -284,32 +324,24 @@
     }
     function AddAssessment()
     {
-        unselect_alltabs();
-        $("#add_assessment").addClass("teacher_option_tab_selected").removeClass("teacher_option_tab");
         hide_alldivs();
         $("#add_assessment_div").show();
         return true;
     }
     function EditAssessment()
     {
-        unselect_alltabs();
-        $("#edit_assessment").addClass("teacher_option_tab_selected").removeClass("teacher_option_tab");
         hide_alldivs();
         $("#edit_assessment_div").show();
         return true;
     }
     function DeleteAssessment()
     {
-        unselect_alltabs();
-        $("#delete_assessment").addClass("teacher_option_tab_selected").removeClass("teacher_option_tab");
         hide_alldivs();
         $("#delete_assessment_div").show();
         return true;
     }
     function ViewStudents()
     {
-        unselect_alltabs();
-        $("#view_students").addClass("teacher_option_tab_selected").removeClass("teacher_option_tab");
         hide_alldivs();
         $("#view_students_div").show();
         return true;
@@ -352,4 +384,34 @@
         element.value = $( "#drill_select option:selected" ).text();
     }
 </script>
+</div>
+    
+</div>
+
+<!--Navigation panel script-->
+<script type="text/javascript">
+(function ($, window, document, undefined) {
+    $(function () {
+        var $navigation = $('#navigation'), $navToggler = $('#navToggler');
+        $('#navToggler').on('click', function (e) {
+            e.preventDefault();
+            $navigation.toggleClass('expanded');
+        });
+    });
+}(jQuery, this, this.document));
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
 

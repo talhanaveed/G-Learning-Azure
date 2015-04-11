@@ -10,11 +10,11 @@ class DataEntry extends CI_Controller{
         $assess_name  = $this->security->xss_clean($this->input->post('AddAssessment_name')); //name
         $i  = $this->security->xss_clean($this->input->post('Add_hiddenfield'));
         
-        //dummydata
-        $teacher_id = $this->session->userdata['person_id'];
-        $school_id=1;
         //---------
-        $drill_id=0;
+        $teacher_id = $this->session->userdata['person_id'];
+        $school_id=$this->session->userdata['school_id'];
+        //---------
+        
         $total_marks=10*$i;
         $drill_name  = $this->security->xss_clean($this->input->post('hidden_drill_id')); //drill 
         
@@ -45,27 +45,12 @@ class DataEntry extends CI_Controller{
                 $check = $this->add_question($assess_id,$i);
             }
             
-            //loading students
-            $school_id=1;
-            $j = 0;
-
-            $data['result'] = $this->Teacher_Model->get_all_students($school_id,$j);
-
-            if ( $data['result']['feedback']==0) //insertion failed
-            {
-                echo student_view_failed_to_load;
-                return false;
-            }else
-            {
-                $data['no_of_students'] = $j;
-                
             //loading add_view
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'add_assess';
                 $this->load->view('main_header_new',$data);
                 $this->load->view('teacher_home');
                 $this->load->view('footer');
-            }
         }
     }
     //helping funtion for AddAssessment
@@ -96,29 +81,14 @@ class DataEntry extends CI_Controller{
     {
         $assess_name  = $this->security->xss_clean($this->input->post('EditAssessment_name')); //name
         
-        //dummydata
-        $school_id=1;
-        //---------
+        $teacher_id = $this->session->userdata['person_id'];
+        $school_id=$this->session->userdata['school_id'];
         
         $this->load->model('Teacher_Model');
         
-        $searched_id = $this->Teacher_Model->search_assessment($assess_name,$school_id);
+        $searched_id = $this->Teacher_Model->search_assessment($assess_name,$school_id,$teacher_id);
         if($searched_id==-1)    //error
         {
-                //loading students
-                $school_id=1;
-                $j = 0;
-
-                $data['result'] = $this->Teacher_Model->get_all_students($school_id,$j);
-
-                if ( $data['result']['feedback']==0) //insertion failed
-                {
-                    echo student_view_failed_to_load;
-                    return false;
-                }else
-                {
-                    $data['no_of_students'] = $j;
-                    
                 //  loading view
                    $data['scroll_to_div'] = 'edit_assess_search_no_match';
                    $data['searched_assessment']= $assess_name;
@@ -126,8 +96,8 @@ class DataEntry extends CI_Controller{
                    $this->load->view('main_header_new',$data);
                    $this->load->view('teacher_home');
                    $this->load->view('footer');
-                }
         }else{
+            
             $i = 0;
             
             $data['questions'] = $this->Teacher_Model->give_assessment_questions($searched_id,$i);
@@ -138,19 +108,6 @@ class DataEntry extends CI_Controller{
                 return false;
             }else
             {
-                //loading students
-                $school_id=1;
-                $j = 0;
-
-                $data['result'] = $this->Teacher_Model->get_all_students($school_id,$j);
-
-                if ( $data['result']['feedback']==0) //insertion failed
-                {
-                    echo student_view_failed_to_load;
-                    return false;
-                }else
-                {
-                    $data['no_of_students'] = $j;
                 
                     //loading questions
                 //    echo "edit_assess_search_match";
@@ -162,7 +119,7 @@ class DataEntry extends CI_Controller{
                     $this->load->view('main_header_new',$data);
                     $this->load->view('teacher_home');
                     $this->load->view('footer');
-                }
+                
             }
         }
     }
@@ -185,20 +142,6 @@ class DataEntry extends CI_Controller{
             $result = $this->Teacher_Model->update_assessment_question($q_id,$statement,$answer,$option1,$option2,$option3);
            if($result==0)
            {
-               //loading students
-                $school_id=1;
-                $j = 0;
-
-                $data['result'] = $this->Teacher_Model->get_all_students($school_id,$j);
-
-                if ( $data['result']['feedback']==0) //insertion failed
-                {
-                    echo student_view_failed_to_load;
-                    return false;
-                }else
-                {
-                    $data['no_of_students'] = $j;
-                    
                 //  loading view
                    $data['scroll_to_div'] = 'update_assess_updation_error';
                    $data['searched_assessment']= $assess_name;
@@ -206,47 +149,56 @@ class DataEntry extends CI_Controller{
                    $this->load->view('main_header_new',$data);
                    $this->load->view('teacher_home');
                    $this->load->view('footer');
-                }
+                
                return 0;
            }
         }
-                //loading students
-                $school_id=1;
-                $j = 0;
-
-                $data['result'] = $this->Teacher_Model->get_all_students($school_id,$j);
-
-                if ( $data['result']['feedback']==0) //insertion failed
-                {
-                    echo student_view_failed_to_load;
-                    return false;
-                }else
-                {
-                    $data['no_of_students'] = $j;
-
                 //loading add_view
                     $data['page_title'] = 'G-Learning | Teacher';
                     $data['scroll_to_div'] = 'update_assess';
                     $this->load->view('main_header_new',$data);
                     $this->load->view('teacher_home');
                     $this->load->view('footer');
-                }
+                
     }
     
     public function delete_assessment()
     {
+        $teacher_id = $this->session->userdata['person_id'];
+        $school_id=$this->session->userdata['school_id'];
+        
         $assess_name  = $this->security->xss_clean($this->input->post('DeleteAssessment_name'));
         $this->load->model('Teacher_Model');
-        $result = $this->Teacher_Model->delete_assessment($assess_name);
+        $result = $this->Teacher_Model->delete_assessment($assess_name,$school_id,$teacher_id);
         if ( $result==0) //insertion failed
         {
-            echo assessment_failed_to_delete;
+            //loading delete_assess
+                $data['page_title'] = 'G-Learning | Teacher';
+                $data['scroll_to_div'] = 'delete_failed';
+                $this->load->view('main_header_new',$data);
+                $this->load->view('teacher_home');
+                $this->load->view('footer');
+                
             return false;
         }else
         {
-            
+                //loading delete_assess
+                $data['page_title'] = 'G-Learning | Teacher';
+                $data['scroll_to_div'] = 'delete_assess';
+                $this->load->view('main_header_new',$data);
+                $this->load->view('teacher_home');
+                $this->load->view('footer');
+                
+                echo $teacher_id;
+            return true;
+        }
+    }
+    
+    public function ViewStudents()
+    {
+            $this->load->model('Teacher_Model');
             //loading students
-            $school_id=1;
+            $school_id=$this->session->userdata['school_id'];
             $j = 0;
 
             $data['result'] = $this->Teacher_Model->get_all_students($school_id,$j);
@@ -258,15 +210,13 @@ class DataEntry extends CI_Controller{
             }else
             {
                 $data['no_of_students'] = $j;
-                
                 //loading delete_assess
                 $data['page_title'] = 'G-Learning | Teacher';
-                $data['scroll_to_div'] = 'delete_assess';
+                $data['scroll_to_div'] = 'view_student';
                 $this->load->view('main_header_new',$data);
                 $this->load->view('teacher_home');
                 $this->load->view('footer');
             }
-        }
     }
     
     //view student is in teacher controller
@@ -289,6 +239,17 @@ class DataEntry extends CI_Controller{
             echo "success";
         else
             echo "failed";
+    }
+    function sendPasswordRequest()
+    {
+         $this->load->model('Teacher_Model');
+         $username=$this->session->userdata['username'];
+         $date = date('Y-m-d');
+        $result=$this->Teacher_Model->sendPassRequest($username, $date);
+        if($result==true)
+            echo "success";
+        else
+            echo "failure";
     }
     
 }

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>G-Learning | Catchy</title>
+		<title>Unity Web Player | AssesmentBird</title>
 		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
 		<script type="text/javascript">
 		<!--
@@ -14,22 +14,22 @@
 		</script>
 		<script type="text/javascript">
 		<!--
-                        var mylevel = <?php echo $level;?>;
 			var config = {
-				width: 960, 
-				height: 600,
+				width: 900, 
+				height: 650,
 				params: { enableDebugging:"0" }
 				
 			};
+			config.params["disableContextMenu"] = true;
 			var u = new UnityObject2(config);
-
+			
 			jQuery(function() {
 
 				var $missingScreen = jQuery("#unityPlayer").find(".missing");
 				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
 				$missingScreen.hide();
 				$brokenScreen.hide();
-				
+
 				u.observeProgress(function (progress) {
 					switch(progress.pluginStatus) {
 						case "broken":
@@ -57,34 +57,8 @@
 						break;
 					}
 				});
-				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/webcatchy.unity3d");
+				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/Assessment_Bird.unity3d");
 			});
-                            function updateRange()
-				{
-                                //    alert("Range");
-                                    if(mylevel==1)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "1");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "20");
-                                    }
-
-                                    if(mylevel==2)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "20");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "50");
-                                    }
-
-                                    if(mylevel==3)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "50");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "99");    
-                                    }
-                                }
-                            function UnityCall( arg )
-				{
-                                    //    alert( arg );
-				    updateRange();
-				}
 		-->
 		</script>
 		<style type="text/css">
@@ -112,7 +86,7 @@
 		}
 		div.content {
 			margin: auto;
-			width: 960px;
+			width: 900px;
 		}
 		div.broken,
 		div.missing {
@@ -136,24 +110,19 @@
 		}
 		div#unityPlayer {
 			cursor: default;
-			height: 600px;
-			width: 960px;
+			height: 650px;
+			width: 900px;
 		}
 		-->
 		</style>
 	</head>
 	<body>
-		<p class="header"><span>Unity Web Player | </span>Catchy</p>
+		<p class="header"><span>Unity Web Player | </span>AssesmentBird</p>
 		<div class="content">
 			<div id="unityPlayer">
 				<div class="missing">
 					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
 						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-					</a>
-				</div>
-				<div class="broken">
-					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
-						<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
 					</a>
 				</div>
 			</div>

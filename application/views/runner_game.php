@@ -64,27 +64,25 @@
 				function updateRange()
 				{
 				//	alert("Range")
-                                if(mylevel==1)
-                                    u.getUnity().SendMessage("GameManager", "setRange", "10");
-                                
-                                if(mylevel==2)
-                                    u.getUnity().SendMessage("GameManager", "setRange", "30");
-                                
-                                if(mylevel==3)
-                                    u.getUnity().SendMessage("GameManager", "setRange", "50");    
+                    if(mylevel==1)
+                        u.getUnity().SendMessage("GameManager", "setRange", "10");
+                    
+                    if(mylevel==2)
+                        u.getUnity().SendMessage("GameManager", "setRange", "30");
+                    
+                    if(mylevel==3)
+                        u.getUnity().SendMessage("GameManager", "setRange", "50");    
 
 				
-                                }
+             	 }
 				function SayHello( arg )
 				{
-				    // show the message
-				//    alert( arg );
 				    updateRange();
 				}
                                 
-                                function endGame( arg )
-				{
-				    window.location.href = "<?php echo base_url();?>"+"games/topicAssessment";
+                function endGame( arg )
+                {
+				    window.location.href = "<?php echo base_url();?>"+"games/assessmentBird";
 				}
 				
 		-->
