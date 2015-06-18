@@ -80,7 +80,7 @@
 
 </script>
 
-<div class="student_dashboard_body">
+<div class="drill_page_body">
     <div class="drills-content">
         <div class='page'>
             <div class="navigation expanded" id="navigation">

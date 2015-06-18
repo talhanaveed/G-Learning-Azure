@@ -27,6 +27,14 @@
     overflow: hidden;
     background: url(../images/Bg.png);
 }
+.drill_page_body{
+    width:100%;
+    height:auto;
+    margin:auto;
+    background-color: #fff7d9;  
+    overflow: hidden;
+   
+}
 
 .student_dashboard_video{
     text-align: center;
