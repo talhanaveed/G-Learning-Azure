@@ -48,7 +48,7 @@
             </div>
         </div>
         <?php }?>
-  <form method="post" action="<?php echo base_url();?>index.php/login/checkLogin" onsubmit="return validateLogin();">
+  <form method="post" action="<?php echo base_url();?>login/checkLogin" onsubmit="return validateLogin();">
      <label for="username"> Username:</label>
       <input name="username" id="username"  type="text" placeholder="Username" />
       <label for="password"> Password:</label>
