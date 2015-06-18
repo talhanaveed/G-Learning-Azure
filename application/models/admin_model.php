@@ -14,33 +14,54 @@ class admin_model extends CI_Model {
     
     function getEmail($username)
     {
-        $this->db->select('email');
-        $this->db->from('person');
-        $this->db->join('login', 'person.person_id = login.person_id');
+        $this->db->select('p.email');
+        $this->db->from('person p');
+        $this->db->join('login l', 'p.person_id = l.person_id');
+        $this->db->where('l.username', $username);
         $query = $this->db->get();
         $row = $query->row();
         return $row->email;
     }
     
-    function validateEmail($email)
+
+    function validateEmail($email, $person_id)
     {
+        if($person_id != -1){
+            $this->db->where('person_id', $person_id);
+            $this->db->where('email', $email);
+            $queryOut = $this->db->get('person');
+
+            if ($queryOut->num_rows == 1){
+                return true;
+            }
+        }
+        
         $this->db->where('email', $email);
         $query = $this->db->get('person');
-        
-        if ($query->num_rows == 1)
-        {
+
+        if ($query->num_rows == 1){
             return false;
         }
         return true;
     }
     
-    function validateUsername($username)
+    function validateUsername($username, $person_id)
     {
+        if($person_id != -1)
+        {
+            $this->db->where('person_id', $person_id);
+            $this->db->where('username', $username);
+            $queryOut = $this->db->get('login');
+
+            if ($queryOut->num_rows == 1){
+                return true;
+            }
+        }
+        
         $this->db->where('username', $username);
         $query = $this->db->get('login');
         
-        if ($query->num_rows == 1)
-        {
+        if ($query->num_rows == 1){
             return false;
         }
         return true;
@@ -52,17 +73,18 @@ class admin_model extends CI_Model {
             'first_name' => $firstName,
             'last_name' => $lastName,
             'address' => $HomeAddress,
-            'email' => $email
+            'email' => $email,
+            'drill_level' => 1,
+            'pic_path' => "student_pic.png"
         );
 
-
         // Email Address already exists
-        if(!$this->validateEmail($email)){
+        if(!$this->validateEmail($email, -1)){
             return "Email Address Already Exists";
         }
 
         // Username already exists
-        if(!$this->validateUsername($username)){
+        if(!$this->validateUsername($username, -1)){
             return "Username Already Exists";
         }
 
@@ -130,6 +152,16 @@ class admin_model extends CI_Model {
             'address' => $HomeAddress,
         );
 
+        // Email Address already exists
+        if(!$this->validateEmail($email, $PersonID)){
+            return "Email Address Already Exists";
+        }
+
+        // Username already exists
+        if(!$this->validateUsername($username, $PersonID)){
+            return "Username Already Exists";
+        }
+        
         $this->db->where('person_id', $PersonID);
         $query = $this->db->update('person',$studentData);
         if($query)
@@ -176,9 +208,9 @@ class admin_model extends CI_Model {
         $query = $this->db->delete('person');
         if($query)
             return "Deleted";
-        else {
+        else
             return "Not Deleted";
-        }
+
     }
     
     public function searchStudent($username)
@@ -234,12 +266,12 @@ class admin_model extends CI_Model {
             
             
             // Email Address already exists
-            if(!$this->validateEmail($email)){
+            if(!$this->validateEmail($email, -1)){
                 return "Email Address Already Exists";
             }
             
             // Username already exists
-            if(!$this->validateUsername($username)){
+            if(!$this->validateUsername($username, -1)){
                 return "Username Already Exists";
             }
             
@@ -306,6 +338,16 @@ class admin_model extends CI_Model {
             'address' => $HomeAddress,
         );
 
+        // Email Address already exists
+        if(!$this->validateEmail($email, $PersonID)){
+            return "Email Address Already Exists";
+        }
+
+        // Username already exists
+        if(!$this->validateUsername($username, $PersonID)){
+            return "Username Already Exists";
+        }
+        
         $this->db->where('person_id', $PersonID);
         $query = $this->db->update('person',$teacherData);
         if($query)
@@ -398,8 +440,7 @@ class admin_model extends CI_Model {
         }
     }
     
-    function getPasswordRequests()
-    {
+    function getPasswordRequests(){
         $results = $this->db->get('password_requests');
         $array = Array();
         $i = 0;
@@ -413,8 +454,7 @@ class admin_model extends CI_Model {
         return $array;
     }
     
-    function deletePasswordRequest($requestID)
-    {
+    function deletePasswordRequest($requestID){
         $this->db->where('request_id', $requestID);
         $query = $this->db->delete('password_requests');
         
@@ -426,8 +466,7 @@ class admin_model extends CI_Model {
             return "N";
     }
     
-    function updatePassword($username, $password)
-    {
+    function updatePassword($username, $password){
         $array = array(
             'password' => $this->encrypt->encode($password)
         );
@@ -439,4 +478,25 @@ class admin_model extends CI_Model {
             return "N";
     }
     
+    public function getAllSchools(){
+        $this->db->select('s.school_name');
+        $this->db->from('school s');
+        return $this->db->get()->result();
+    }
+    
+    public function getAllStudents(){
+        $this->db->from('person p');
+        $this->db->join('login l', 'p.person_id = l.person_id');
+        $this->db->join('school s', 's.school_id = l.school_id');
+        $this->db->where('l.type', "student");
+        return $this->db->get()->result();
+    }
+    
+    public function getAllTeachers(){
+        $this->db->from('person p');
+        $this->db->join('login l', 'p.person_id = l.person_id');
+        $this->db->join('school s', 's.school_id = l.school_id');
+        $this->db->where('l.type', "teacher");
+        return $this->db->get()->result();
+    }
 }

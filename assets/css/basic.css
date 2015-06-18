@@ -56,6 +56,16 @@
 }
 
 /*  Parents_View CSS  */
+#report_card
+{
+    display: none;
+}
+
+#book_main_page
+{
+    display: none;
+}
+
 .book_main_page
 {
     background: url(../images/report.png);
@@ -96,6 +106,12 @@
 {
     text-align: center;
 }
+
+#assignment_list
+{
+    display: none;
+}
+
 
 .result_sheet_heading
 {

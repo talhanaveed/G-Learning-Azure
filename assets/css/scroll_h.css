@@ -1,0 +1,294 @@
+/* NOTE; specs for #wn in head of demo too */
+/*DRILL 1*/
+div#wn1	{ 
+    position:absolute; /* scroll area div must be positioned */
+    width:35px; height:52px; /* width and height required. adjust to suit  */
+    overflow:hidden; /* required! */
+      top: 361px;
+        left: 519px;
+	}
+
+/* styles to display list items horiz1ontally */
+ul#horiz1 {
+    list-style:none; margin:0; padding:0;
+    white-space:nowrap;
+    }
+ul#horiz1 li {
+    display:inline;
+    white-space:nowrap;
+    }
+    
+/* style scrollLinks to suit your taste and layout. */
+div#scrollLinks1 {
+    position: absolute;
+    width: 180px;
+    top: 404px;
+    left: 503px;
+}
+
+div#scrollLinks1 .left {
+    background-image:url('../images/tri-lft.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; left:20px;
+}
+
+div#scrollLinks1 .right {
+    background-image:url('../images/tri-rt.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; right:133px;
+    }
+
+/* safari, chrome, opera have very prominent outline by default 
+   opera shows outline movement with scrolling and won't allow none
+   set to suit your page design
+*/
+div#wn1:focus {
+    outline:1px dotted #eee;
+    }
+    
+/*DRILL 2*/   
+ div#wn2	{ 
+    position:absolute; /* scroll area div must be positioned */
+    width:35px; height:52px; /* width and height required. adjust to suit  */
+    overflow:hidden; /* required! */
+      top: 347px;
+      left: 627px;
+	}
+
+/* styles to display list items horiz1ontally */
+ul#horiz2 {
+    list-style:none; margin:0; padding:0;
+    white-space:nowrap;
+    }
+ul#horiz2 li {
+    display:inline;
+    white-space:nowrap;
+    }
+    
+/* style scrollLinks to suit your taste and layout. */
+div#scrollLinks2 {
+    position: absolute;
+    width: 180px;
+    top: 390px;
+  left: 610px;
+}
+
+div#scrollLinks2 .left {
+    background-image:url('../images/tri-lft.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; left:20px;
+}
+
+div#scrollLinks2 .right {
+    background-image:url('../images/tri-rt.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; right:133px;
+    }
+
+/* safari, chrome, opera have very prominent outline by default 
+   opera shows outline movement with scrolling and won't allow none
+   set to suit your page design
+*/
+div#wn2:focus {
+    outline:1px dotted #eee;
+    }
+    
+/*DRILL 3*/
+div#wn3	{ 
+    position:absolute; /* scroll area div must be positioned */
+    width:35px; height:52px; /* width and height required. adjust to suit  */
+    overflow:hidden; /* required! */
+      top: 350px;
+  left: 740px;
+	}
+
+/* styles to display list items horiz1ontally */
+ul#horiz3 {
+    list-style:none; margin:0; padding:0;
+    white-space:nowrap;
+    }
+ul#horiz3 li {
+    display:inline;
+    white-space:nowrap;
+    }
+    
+/* style scrollLinks to suit your taste and layout. */
+div#scrollLinks3 {
+    position: absolute;
+    width: 180px;
+    top: 393px;
+  left: 724px;
+}
+
+div#scrollLinks3 .left {
+    background-image:url('../images/tri-lft.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; left:20px;
+}
+
+div#scrollLinks3 .right {
+    background-image:url('../images/tri-rt.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; right:133px;
+    }
+
+/* safari, chrome, opera have very prominent outline by default 
+   opera shows outline movement with scrolling and won't allow none
+   set to suit your page design
+*/
+div#wn3:focus {
+    outline:1px dotted #eee;
+    }  
+    
+/*DRILL 4*/
+div#wn4	{ 
+    position:absolute; /* scroll area div must be positioned */
+    width:35px; height:52px; /* width and height required. adjust to suit  */
+    overflow:hidden; /* required! */
+      top: 348px;
+  left: 853px;
+	}
+
+/* styles to display list items horiz1ontally */
+ul#horiz4 {
+    list-style:none; margin:0; padding:0;
+    white-space:nowrap;
+    }
+ul#horiz4 li {
+    display:inline;
+    white-space:nowrap;
+    }
+    
+/* style scrollLinks to suit your taste and layout. */
+div#scrollLinks4 {
+    position: absolute;
+    width: 180px;
+    top: 390px;
+    left: 836px;
+}
+
+div#scrollLinks4 .left {
+    background-image:url('../images/tri-lft.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; left:20px;
+}
+
+div#scrollLinks4 .right {
+    background-image:url('../images/tri-rt.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; right:133px;
+    }
+
+/* safari, chrome, opera have very prominent outline by default 
+   opera shows outline movement with scrolling and won't allow none
+   set to suit your page design
+*/
+div#wn4:focus {
+    outline:1px dotted #eee;
+    }  
+    
+/*DRILL 5*/
+div#wn5	{ 
+    position:absolute; /* scroll area div must be positioned */
+    width:35px; height:52px; /* width and height required. adjust to suit  */
+    overflow:hidden; /* required! */
+      top: 296px;
+  left: 907px;
+	}
+
+/* styles to display list items horiz1ontally */
+ul#horiz5 {
+    list-style:none; margin:0; padding:0;
+    white-space:nowrap;
+    }
+ul#horiz5 li {
+    display:inline;
+    white-space:nowrap;
+    }
+    
+/* style scrollLinks to suit your taste and layout. */
+div#scrollLinks5 {
+    position: absolute;
+    width: 180px;
+    top: 338px;
+  left: 891px;
+}
+
+div#scrollLinks5 .left {
+    background-image:url('../images/tri-lft.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; left:20px;
+}
+
+div#scrollLinks5 .right {
+    background-image:url('../images/tri-rt.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; right:133px;
+    }
+
+/* safari, chrome, opera have very prominent outline by default 
+   opera shows outline movement with scrolling and won't allow none
+   set to suit your page design
+*/
+div#wn5:focus {
+    outline:1px dotted #eee;
+    }  
+    
+ /*DRILL 6*/
+div#wn6	{ 
+    position:absolute; /* scroll area div must be positioned */
+    width:35px; height:52px; /* width and height required. adjust to suit  */
+    overflow:hidden; /* required! */
+      top: 206px;
+        left: 853px;
+	}
+
+/* styles to display list items horiz1ontally */
+ul#horiz6 {
+    list-style:none; margin:0; padding:0;
+    white-space:nowrap;
+    }
+ul#horiz6 li {
+    display:inline;
+    white-space:nowrap;
+    }
+    
+/* style scrollLinks to suit your taste and layout. */
+div#scrollLinks6 {
+    position: absolute;
+    width: 180px;
+    top: 247px;
+    left: 837px;
+}
+
+div#scrollLinks6 .left {
+    background-image:url('../images/tri-lft.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; left:20px;
+}
+
+div#scrollLinks6 .right {
+    background-image:url('../images/tri-rt.gif');
+    background-repeat:no-repeat;
+    width:12px; height:12px; /* specify width and height of your image */
+    position:absolute; right:133px;
+    }
+
+/* safari, chrome, opera have very prominent outline by default 
+   opera shows outline movement with scrolling and won't allow none
+   set to suit your page design
+*/
+div#wn6:focus {
+    outline:1px dotted #eee;
+    }

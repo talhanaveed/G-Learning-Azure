@@ -15,7 +15,10 @@
 		</script>
 		<script type="text/javascript">
 		<!--
-		    var mylevel = <?php echo $level;?>;
+
+		    var level = <?php echo $level;?>;
+
+		    var drill_id = <?php echo $drill_id;?>;
 		    var mode = "<?php echo $mode;?>";
 			var config = {
 				width: 960, 
@@ -74,15 +77,15 @@
                   
                     u.getUnity().SendMessage("NumberManager", "setMode", mode);
                 //  alert("Range")
-                    if(mylevel==1)
+                    if(level==1)
                         u.getUnity().SendMessage("NumberManager", "setRange", "10");
                     
-                    if(mylevel==2)
+                    if(level==2)
                         u.getUnity().SendMessage("NumberManager", "setRange", "30");
                     
-                    if(mylevel==3)
+                    if(level==3)
                         u.getUnity().SendMessage("NumberManager", "setRange", "50");    
-
+>>>>>>> master
                 
                  }
                 function SayHello( arg )
@@ -93,7 +96,35 @@
                                 
                 function endGame( arg )
                 {
-                    window.location.href = "<?php echo base_url();?>"+"games/shootEmUp";
+
+                	score(arg);
+                    window.location.href = "<?php echo base_url();?>"+"games/assessmentBird";
+                }
+                function score(arg)
+                {
+                	var percentageScore = arg;
+
+                    var baseurl = "<?php print base_url(); ?>";
+                    $.ajax({
+                        url:  baseurl +"games/logScore",
+                        type:'POST',
+                        data: {drill_id : drill_id , level :level, percentageScore : percentageScore},
+                        cache:false,
+                        dataType: 'json',
+                        success:function(data)
+                        {
+
+                            if(data)
+                            {                    
+                               
+                               // alert(data);
+                            }
+                            //else
+                                //alert("Error Parsing XML");
+                        },
+                        error:function(x,e){
+                        }
+                    }); 
                 }
 		-->
 		</script>
@@ -170,4 +201,5 @@
 		</div>
 		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
 	</body>
+
 </html>

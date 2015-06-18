@@ -33,7 +33,7 @@
     <script src="<?php echo base_url(); ?>/assets/js/jquery-ui.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/bootstrap.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/bootstrap3.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/js/jquery-2.0.3.js"></script>
+   
     <script src="<?php echo base_url(); ?>/assets/js/jquery-1.10.2.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/jquery-2.1.1.min.js"></script>
     <script>   

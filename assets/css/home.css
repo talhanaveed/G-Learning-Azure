@@ -61,10 +61,6 @@ table {
 }
 
 html ,body{
- //   width:1340px;
-    padding:0;
-    margin:auto;
-    
     height:100%;    //for header_image
     padding:0;
     margin:0;
@@ -78,9 +74,8 @@ html ,body{
 
 body {
     font: 14px/24px Tahoma, Geneva, sans-serif !important;
-  //  width:1340px ;
     margin:auto !important;
-    background: whitesmoke; 
+    background: #fff7d9;
 }
 
 .main-header {
@@ -290,6 +285,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d6db', end
     position: absolute;
 }
 #headfoot{
+    margin-top:100px;
     width: 100%;
     background-color: #fff7d9;  //old: #1E2935; 
 }
@@ -370,8 +366,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d6db', end
 
 /*  ADMIN CSS   */
 .main_container_general
-{
+{   
     width:1340px;
+    float:none;
     margin: auto;
     height: auto;
 }
@@ -380,6 +377,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d6db', end
     width:1340px;
     margin: 40px auto auto auto;
     height: auto;
+    min-height: 500px;
 }
 
 
@@ -399,22 +397,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4d6db', end
     font-size: 20px;
     font-family: Montserrat;
     padding-top: 10px;
-    color:#ED262D;
+    color:white;
 }
 
 .mid_content_general
 {
     background-color: #FFF7D9;
-    min-height: 500px;
+    
     width:1340px;
-    overflow: auto;
+   
 }
 
 .right_nav_general
 {
     float:right;
     background-color: #222222;
-    
     margin-top: 4%;
 }
 
@@ -749,12 +746,14 @@ background: white;
     display: none;
 }
 
-#search_general_edit
+#general_edit
+
 {
     display: none;
 }
 
-#search_general_delete
+
+#general_delete
 {
     display: none;
 }
@@ -763,6 +762,104 @@ background: white;
 {
     display: none;
 }
+
+.CSSTableGenerator {
+	margin:0px;padding:0px;
+	width:92%;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.CSSTableGenerator tr:hover td{
+	background-color:#ffffff;
+		
+
+}
+
+.CSSTableGenerator td{
+	vertical-align:middle;
+	background-color:#fcfcfc;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:14px;
+	font-family:myriad-pro;
+	font-weight:normal;
+	color:#000000;
+        text-align: center;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+	background-color:#6FB89F;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+
+
+.edit_link{
+    color:blue !important;
+    text-decoration: underline;
+}
+
+.edit_link:hover{
+    cursor: pointer; 
+}
+
+
 
 .password_request_container
 {    
@@ -1256,7 +1353,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffee72', end
 
 .header_image{
     width: 100%;
- //   min-height:150px;
     height: 55%;
     z-index: 1;
     background-image: url(../images/header.png);
@@ -1436,17 +1532,17 @@ z-index:1000;
     width:1340px;
 }
 .teacher_mid_left{
-    height: 670px;
+  
     width:25%;
-    float:left;
+   // float:left;
     display: inline;
 }
 .teacher_mid_right{
     margin:auto;
-    height: 650px;
-    max-height:650px;
+    margin-left:20%;
     width:74%;
-    overflow: auto;
+    
+    
 }
 .no_option_seleted{
     height:60px;
@@ -1533,16 +1629,20 @@ z-index:1000;
 }
 //Add Assessment
 .add_assessment_div{
-    height:650px;
-    max-height:650px;
+/*    height:650px;
+    max-height:650px;*/
     display:inline-block;
-    width:100%;
+    
    // word-wrap:break-word;
 }
 .heading_teacher{
-    width:100%;
-    height:60px;
+
+  height: 60px;
+  background-color: #9bba1f;
+ 
+ //   width:100%;
     background-color:#9bba1f;
+
 }
 .heading_teacher h1{
     text-align: center;
@@ -1614,7 +1714,7 @@ z-index:1000;
     font-size:40px;
     font-weight:bolder;
     float:left;
-    margin-left:40px;
+    margin-left:97px;
 }
 .questions_wrapper{
     width:100%;
@@ -1728,28 +1828,28 @@ z-index:1000;
     font-size:18px;
     color:#f73f3f;
 }
-//----------------
+
 .edit_assessment_div{
-    height:650px;
-    max-height:650px;
+  
+    
     display:inline-block;
     width:100%;
 }
 .delete_assessment_div{
-    height:650px;
-    max-height:650px;
+    //height:650px;
+    
     display:inline-block;
     width:100%;
 }
 .view_students_div{
-    height:650px;
-    max-height:650px;
+    //height:650px;
+  
     display:inline-block;
     width:100%;
 }
 .view_result_container{
     width:100%;
-    height:auto;
+   
     margin-top:20px;
     margin-bottom:20px;
 }
@@ -1757,7 +1857,7 @@ z-index:1000;
 {
     margin: auto;
 //    width:915px;
-    width:545px;
+    width:100%;
     height:80px;
     
 }
@@ -1780,18 +1880,21 @@ z-index:1000;
     font-family: Montserrat;
 }
 .student_block label{
-    line-height:80px;
-    font-size: 22px;
-    font-weight: normal;
-    color:#000;
-    font-family: cursive;
+
+     line-height: 80px;
+  font-size: large;
+  font-weight: normal;
+  color: #000;
+  font-family: inherit;
+
 }
 
 .student_block_long{
     height:80px;
     float:left;
     display:inline-block;
-    width:270px;
+    width:49%;
+
     border: #f73f3f solid thin;
     background-color: #9bba1f;
     text-align: center;
@@ -1800,7 +1903,9 @@ z-index:1000;
     height:80px;
     float:left;
     display:inline-block;
-    width:270px;
+
+    width:49%;
+
     border: #f73f3f solid thin;
     background-color: #f73f3f;
     text-align: center;
@@ -1820,5 +1925,55 @@ z-index:1000;
     font-size: 22px;
     font-weight: normal;
     color:#000;
-    font-family: cursive;
+    font-family:inherit;
 }
+
+
+.result_card_div
+{
+ 
+    max-height:auto;
+    display:inline-block;
+    width:100%;   
+    overflow: hidden;
+}
+
+
+.result_name_th
+{
+    width:140px;
+}
+
+.marks_th
+{
+    width:40px;
+    text-align: center;
+}
+
+
+
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#000000;border:1px; width:100%;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#000000;color:#669;background-color:snow; text-align:center;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#000000;color:#D1D1D1 !important ;background-color:#343434;}
+.tg .tg-c5de{font-weight:bold;font-size:13px;color:#000000;text-align:center}
+
+
+.error_main_container{
+    margin-top: 20%;
+    display:inline-block;
+    width:100%;
+    border: #f73f3f solid thin;
+    background-color: #f73f3f;
+    text-align: center;
+}
+
+.error_label{
+   
+line-height:80px;
+    font-size: 30px;
+    font-weight: bolder;
+    color:#fafafa;
+    background-color: #f73f3f;
+    font-family: Montserrat;
+}
+

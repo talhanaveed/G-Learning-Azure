@@ -1,120 +1,19 @@
 <link href="<?php echo base_url();?>assets/css/normalize.css" rel="stylesheet" type="text/css">
 <link href="<?php echo base_url();?>assets/css/nav_menu.css" rel="stylesheet" type="text/css">
 <script>
-    $(document).ready(function(){
-        var GlobalPersonID = "";
-        
-        $('#delete_button').on('click', function(e){
-           var baseurl = "<?php print base_url(); ?>";
-            $.ajax({
-                url:  baseurl +"admin/deleteTeacher",
-                type:'POST',
-                cache:false,
-                dataType: 'html',
-                data: { personID : GlobalPersonID },
-                success:function(data){
-                    if(data === "success")
-                    {
-                        $('#edit_main_form').hide();
-                        $('#js-error-block-message').text("Teacher has been Deleted");
-                        $('#js-error-block').show();
-                        setTimeout(function(){
-                            $('#js-error-block').fadeTo("slow",1.0);
-                        }, 500);
-
-//                        setTimeout(function(){
-//                            $('#js-error-block').fadeTo("slow",0.0);
-//                            $('#js-error-block').hide();
-//                        }, 3500);
-                    }
-                    else
-                    {
-                        $('#edit_main_form').hide();
-                        $('#js-error-block-message').text("Teacher Not Deleted. Some Error occured..!");
-                        $('#js-error-block').show();
-                        setTimeout(function(){
-                            $('#js-error-block').fadeTo("slow",1.0);
-                        }, 500);
-
-//                        setTimeout(function(){
-//                            $('#js-error-block').fadeTo("slow",0.0);
-//                            $('#js-error-block').hide();
-//                        }, 3500);
-                    }
-                },
-                error:function(x,e){
-                }
-            }); 
-            e.preventDefault();
-        });
-        
-        $('#searchTeacherForm').on('submit',function(e) {
-        var query = document.getElementById('Searchusername').value;
-        if(query == "")
-        {
-            $('#js-error-block-message').text("Please Enter Username");
-            $('#js-error-block').show();
-            setTimeout(function(){
-                $('#js-error-block').fadeTo("slow",1.0);
-            }, 500);
-
-//            setTimeout(function(){
-//                $('#js-error-block').fadeTo("slow",0.0);
-//                $('#js-error-block').hide();
-//            }, 4500);
-        }
-        else
-        {
-            var baseurl = "<?php print base_url(); ?>";
-            $.ajax({
-                url:  baseurl +"admin/searchTeacher",
-                type:'POST',
-                cache:false,
-                dataType: 'json',
-                data: { query : query },
-                success:function(data){
-                    if(data.response === "success")
-                    {
-                        $('#edit_main_form').show();
-                        $('#delete_button').show();
-                        $('#edit_school').val(data.school_name);
-                        $('#edit_firstName').val(data.first_name);
-                        $('#edit_lastName').val(data.last_name);
-                        $('#edit_HomeAddress').val(data.address);
-                        
-                        $('#edit_email').val(data.email);
-                        $('#edit_email').prop('readonly', true);
-                        $('#edit_email').css("background","white");
-                        
-                        $('#edit_username').val(data.username);
-                        $('#edit_username').prop('readonly', true);
-                        $('#edit_username').css("background","white");
-                        $('#edit_password').val(data.password);
-                        $('#person_id').val(data.person_id);
-                        GlobalPersonID = data.person_id;
-                    }
-                    else
-                    {
-                        $('#edit_main_form').hide();
-                        $('#js-error-block-message').text("Username Not Found");
-                        $('#js-error-block').show();
-                        setTimeout(function(){
-                            $('#js-error-block').fadeTo("slow",1.0);
-                        }, 500);
-
-//                        setTimeout(function(){
-//                            $('#js-error-block').fadeTo("slow",0.0);
-//                            $('#js-error-block').hide();
-//                        }, 2500);
-                    }
-                },
-                error:function(x,e){
-                }
-            });
-        }
-        e.preventDefault(); //=== To Avoid Page Refresh and Fire the Event "Click"===
-        });
-    });
+    function editSpecificTeacher(student_id, fName, lName, username, email, address, pass, parentPass, school){
+        $("#general_edit").hide();
+        $("#edit_main_form").show();
+        $('#person_id').val(student_id);
+        $('#edit_firstName').val(fName);
+        $('#edit_lastName').val(lName);
+        $('#edit_username').val(username);
+        $('#edit_email').val(email);
+        $('#edit_HomeAddress').val(address);
+        $('#edit_password').val(pass);
+        $('#edit_Parentpassword').val(parentPass);
+        $('#edit_school').val(school);
+    }
     
     function validateEmail(email) { 
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -154,11 +53,6 @@
             setTimeout(function(){
                 $('#js-error-block').fadeTo("slow",1.0);
             }, 500);
-
-//            setTimeout(function(){
-//                $('#js-error-block').fadeTo("slow",0.0);
-//                $('#js-error-block').hide();
-//            }, 2500);
             return false;
         }
         else
@@ -218,7 +112,7 @@
     
     <div class="mid_content_general">
         <div class='page'>
-            <div class="navigation" id="navigation">
+            <div class="navigation expanded" id="navigation">
                 <a class="nav-toggler" href="#" id="navToggler">
                     <span class="show-nav">&#9776;</span>
                     <span class="hide-nav">&times;</span>
@@ -313,28 +207,61 @@
                     </div>
                 </div>
                 
-                <div class="search_general" id="search_general_edit">
-                    <form id ="searchTeacherForm" type="submit">
-                        <table>
-                            <tr>
-                                <td  class="inputField" >Username:</td>
-                                <td class="input">
-                                      <div class="fieldgroup">
-                                        <input type="text" name="Searchusername" value="" id="Searchusername" maxlength="20" placeholder="Enter Username">
-                                      </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td  class="inputField" ></td>
-                                <td class="input">
-                                      <div class="fieldgroup">
-                                        <input type="submit" value='Search Teacher'><br/><br/>
-                                      </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
+                <div class="search_general" id="general_edit">
+                    <div class="scroll_content mCustomScrollbar">
+                        <?php if(isset($teachers)) { ?>
+                        <div class="CSSTableGenerator">
+                            <table id="teachers_list">
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Username</td>
+                                    <td>Update</td>
+                                </tr>
+                                <?php for($i = 0; $i < count($teachers); $i++ ) {?>
+                                    <tr>
+                                        <td><?php echo $teachers[$i][1]." ".$teachers[$i][2]; ?></td>
+                                        <td><?php echo $teachers[$i][3]; ?></td>
+                                        <td><a onclick="editSpecificTeacher('<?php echo $teachers[$i][0]; ?>', '<?php echo $teachers[$i][1]; ?>', '<?php echo $teachers[$i][2]; ?>', '<?php echo $teachers[$i][3]; ?>', '<?php echo $teachers[$i][4]; ?>', '<?php echo $teachers[$i][5]; ?>', '<?php echo $teachers[$i][6]; ?>', '<?php echo $teachers[$i][7]; ?>', '<?php echo $teachers[$i][8]; ?>');" class="edit_link">Edit</a></td>
+                                    </tr>
+                                <?php }   ?>
+                            </table>
+                        </div>
+                        <?php } else { ?>
+                            <div class="password-note">
+                                <label>No Teachers</label>
+                            </div>
+                            <?php }   ?>
+                    </div>
                 </div>
+                
+                <div class="search_general" id="general_delete">
+                    <div class="scroll_content mCustomScrollbar">
+                        <?php if(isset($teachers)) { ?>
+                        <div class="CSSTableGenerator">
+                            <table id="teachers_list">
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Username</td>
+                                    <td>Delete</td>
+                                </tr>
+                                <?php for($i = 0; $i < count($teachers); $i++ ) {?>
+                                    <tr>
+                                        <td><?php echo $teachers[$i][1]." ".$teachers[$i][2]; ?></td>
+                                        <td><?php echo $teachers[$i][3]; ?></td>
+                                        <td><a href="<?php print base_url(); ?>admin/deleteTeacher?person_id=<?php echo $teachers[$i][0]; ?>" class="edit_link">Delete</a></td>
+                                    </tr>
+                                <?php } ?>
+                            </table>
+                        </div>
+                        <?php } else { ?>
+                            <div class="password-note">
+                                <label>No Teachers</label>
+                            </div>
+                            <?php }   ?>
+                    </div>
+                </div>
+                
+                
                 <div id="main_form">
                     <form type="submit" method="POST" action="<?php echo base_url()?>admin/addTeacher" onsubmit="return validateStudent();">
                         <table>
@@ -343,8 +270,9 @@
                                 <td class="input">
                                     <div class="fieldgroup">
                                         <select name="school" id="school">
-                                            <option value="Educators">Educators</option>
-                                            <option value="BeaconHouse">Beaconhouse</option>
+                                            <?php for($i = 0; $i < $schoolCount; $i++){?>
+                                            <option value="<?php echo $schools[$i];?>"><?php echo $schools[$i];?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </td>
@@ -417,8 +345,9 @@
                                 <td class="input">
                                     <div class="fieldgroup">
                                         <select name="school" id="edit_school">
-                                            <option value="Educators">Educators</option>
-                                            <option value="BeaconHouse">BeaconHouse</option>
+                                            <?php for($i = 0; $i < $schoolCount; $i++){?>
+                                            <option value="<?php echo $schools[$i];?>"><?php echo $schools[$i];?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </td>
@@ -524,9 +453,10 @@
         $("#delete_student").hide();
         $("#edit_student").hide();
         $("#add_student").show();
-        $("#search_general_edit").hide();
         $("#main_form").show();
+        $("#general_edit").hide();
         $("#edit_main_form").hide();
+        $("#general_delete").hide();
     }
 
     function EditTeacher()
@@ -542,9 +472,10 @@
         $("#add_student").hide();
         $("#delete_student").hide();
         $("#edit_student").show();
-        $("#search_general_edit").show();
         $("#main_form").hide();
+        $("#general_edit").show();
         $("#edit_main_form").hide();
+        $("#general_delete").hide();
     }
 
     function DeleteTeacher()
@@ -562,7 +493,9 @@
         $("#delete_student").show();
         $("#search_general_edit").show();
         $("#main_form").hide();
+        $("#general_edit").hide();
         $("#edit_main_form").hide();
+        $("#general_delete").show();
     }
 </script>
 

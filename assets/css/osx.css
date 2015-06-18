@@ -1,0 +1,76 @@
+/*
+ * SimpleModal OSX Style Modal Dialog
+ * http://simplemodal.com
+ *
+ * Copyright (c) 2013 Eric Martin - http://ericmmartin.com
+ *
+ * Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/mit-license.php
+ */
+
+#osx-modal-content, #osx-modal-data {display:none;}
+
+/* Overlay */
+#osx-overlay {background-color:#000;}
+
+/* Container */
+#osx-container { color:#000; font: 16px/24px "Lucida Grande",Arial,sans-serif; width:700px; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; border-radius:0 0 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000;}
+#osx-container a {color:#ddd;}
+#osx-container #osx-modal-title {color:#B41A1D; font-size:20px;text-align: center; font-family: myriad-pro; background-color:#E3E4B8; border-bottom:1px solid #ccc; font-weight:bold; padding:6px 8px; text-shadow:0 1px 0 #f4f4f4;}
+#osx-container .close {display:none; position:absolute; right:0; top:0;}
+#osx-container .close a {display:block; color:#000; font-weight:bold; padding:6px 12px 0; text-decoration:none; text-shadow:0 1px 0 #f4f4f4;}
+#osx-container .close a:hover {color:#000;}
+#osx-container #osx-modal-data {font-size:12px;}
+#osx-container h2 {margin:10px 0 6px;}
+#osx-container p {margin-bottom:10px;}
+#osx-container span {color:#777;}
+
+.ranking_background
+{
+    position: relative; 
+    top: 0; 
+    left: 0; 
+    width:700px;   
+}
+
+.ranking_pic_body
+{
+    position: relative; 
+    left: 0; 
+    top: 0;
+}
+
+.ranking_pic{
+      border: 5px solid maroon;
+  border-radius: 20px;
+}
+
+.ranking_student_pic_level1
+{
+    position: absolute; /*top: 370px; left: 197px;*/
+}
+
+.ranking_student_pic_level2
+{
+    position: absolute; top: 353px; left: 302px;
+}
+
+.ranking_student_pic_level3
+{
+    position: absolute; top: 353px; left: 416px;
+}
+
+.ranking_student_pic_level4
+{
+    position: absolute; top: 353px; left: 526px;
+}
+
+.ranking_student_pic_level5
+{
+    position: absolute; top: 302px; left: 585px;
+}
+
+.ranking_student_pic_level6
+{
+    position: absolute; top: 215px; left: 531px;
+}

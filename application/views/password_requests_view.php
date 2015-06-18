@@ -1,3 +1,4 @@
+
 <link href="<?php echo base_url();?>assets/css/normalize.css" rel="stylesheet" type="text/css">
 <link href="<?php echo base_url();?>assets/css/nav_menu.css" rel="stylesheet" type="text/css">
 <script>
@@ -30,7 +31,7 @@
     
     <div class="mid_content_general">
         <div class='page'>
-            <div class="navigation" id="navigation">
+            <div class="navigation expanded" id="navigation">
                 <a class="nav-toggler" href="#" id="navToggler">
                     <span class="show-nav">&#9776;</span>
                     <span class="hide-nav">&times;</span>
@@ -173,4 +174,5 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+>>>>>>> master
 </script>

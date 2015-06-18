@@ -1,26 +1,18 @@
+
 <?php
-/**
- * Description of user
- *
- * @author Haider
- */
+
 class levels_model extends CI_Model {
     
-    function levels_model()  
-    {  
-        // Call the Model constructor  
-        parent::__construct(); 
-    }
-    
-    public function checkLevel($person_id)
+   
+    public function getDrillId($drillName)
     {
-        $this->db->where('person_id', $person_id);
-        $query = $this->db->get('person');
+        $this->db->where('topic_name', $drillName);
+        $query = $this->db->get('drill');
         
         if ($query->num_rows == 1)
         {
             $row = $query->row();
-            return $row->level_in_game;
+            return $row->drill_id;
         }
         else
             return -1;
@@ -68,4 +60,46 @@ class levels_model extends CI_Model {
         else
             return -1;
     }
+    
+    public function getCurrentStudentDrillLevel($studentID)
+    {
+        $this->db->where('person_id', $studentID);
+        $query = $this->db->get('person');
+        if($query->num_rows == 1)
+        {
+            $row = $query->row();
+            $drill_level = $row->drill_level;
+            return $drill_level;
+        }
+        else
+            return -1;
+    }
+    
+    public function getAllStudentDrillLevel()
+    {
+        $this->db->select('p.pic_path, p.drill_level');
+        $this->db->from('person p');
+        $this->db->join('login l', 'l.person_id = p.person_id');
+        $this->db->where('l.type', "student");
+        return $this->db->get()->result();
+    }
+
+
+    public function checkLevel($person_id)
+    {
+        $this->db->where('person_id', $person_id);
+        $query = $this->db->get('person');
+        
+        if ($query->num_rows == 1)
+        {
+            $row = $query->row();
+            return $row->level_in_game;
+        }
+        else
+            return -1;
+    }
+  
+    
+    
+  
 }

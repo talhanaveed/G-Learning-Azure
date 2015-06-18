@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 class login extends CI_Controller{
@@ -19,24 +20,20 @@ class login extends CI_Controller{
         $username = $this->security->xss_clean($this->input->post('username'));
         $password = $this->security->xss_clean($this->input->post('password'));
         $type = $this->security->xss_clean($this->input->post('type'));
-        if($type != "parent"){
         
+        
+        if($type != "parent"){
+            
             // Model Function Call
             $result = $this->login_model->checkLogin($username,$password,$type);
 
             if($result == "student"){
-                $data['page_title'] = 'G-Learning | Student';
-                $this->load->view('student_header',$data);
-                $this->load->view('student_dashboard');
+                redirect('home/student_dashboard');
             }
             else if($result == "admin"){
                 $this->session->unset_userdata('errorFlag');
                 $this->session->unset_userdata('errorMessage');
-
-                $data['page_title'] = 'G-Learning | Admin';
-                $this->load->view('main_header_new',$data);
-                $this->load->view('admin_home_view');
-                $this->load->view('footer');
+                redirect('admin/student');
             }
             else if($result == "N"){
                 $this->session->set_userdata('errorFlag',false);
@@ -46,9 +43,7 @@ class login extends CI_Controller{
             else if($result == "teacher"){
                 $data['scroll_to_div'] = 'start';
                 $data['page_title'] = 'G-Learning | Teacher';
-                $this->load->view('main_header_new',$data);
-                $this->load->view('teacher_home');
-                $this->load->view('footer');
+                redirect('teacher');
             }
        }
        else
@@ -57,9 +52,7 @@ class login extends CI_Controller{
             if($result1 == false){
                 $data['page_title'] = 'G-Learning | Parents';
                 $data['name'] = $this->session->userdata['Namesss'];
-                $this->load->view('main_header_new',$data);
-                $this->load->view('parents_view');
-                $this->load->view('footer');
+                redirect('parents');
             }
             else{
                 $this->session->set_userdata('errorFlag',false);
@@ -74,8 +67,21 @@ class login extends CI_Controller{
         $this->session->unset_userdata('errorFlag');
         $this->session->unset_userdata('errorMessage');
         $this->session->unset_userdata('person_id');
-        session_destroy();
+        $this->session->sess_destroy();
         $this->load->view('login_view');
     }
+
+
+
+    public function login_new()
+    {
+        $this->session->sess_destroy();
+        $this->load->view('login_view_new');
+    }
+    
+   
+    
+    
 }
+
 ?>

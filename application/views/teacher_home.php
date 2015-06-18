@@ -1,6 +1,27 @@
 <link href="<?php echo base_url();?>assets/css/normalize.css" rel="stylesheet" type="text/css">
 <link href="<?php echo base_url();?>assets/css/nav_menu.css" rel="stylesheet" type="text/css">
+<script src="<?php echo base_url();?>/assets/js/jquery.js"></script>
+<script src="<?php echo base_url();?>/assets/js/jsexcel.js"></script>
 <script>
+   
+    $(document).ready(function () {
+        
+        codeAddress();    //runs on start
+        $("#btnExport").click(function () {
+        var uri =    $("#tblExport").battatech_excelexport({
+                containerid: "result_table"
+               , datatype: 'table'
+               , returnUri : true
+               
+            });
+            
+           $(this).attr('download', 'ResultsSheet_'+Date()+'.xls') // set file name (you want to put formatted date here)
+               .attr('href', uri)                     // data to download
+               .attr('target', '_blank')              // open in new window (optional)
+                ;
+  
+        });
+    });
     function ChangePassword()
     {
         var baseurl = "<?php print base_url(); ?>";
@@ -18,8 +39,20 @@
                 }
             }); 
     }
+    function SubmitAssessmentForm(value)
+    {
+      //  alert(value);
+        $('#EditAssessment_name').val(value);
+        $('#edit_assessment_form').submit();
+    }
 </script>
-
+    <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 20px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+    .tg .tg-k6pi{font-size:12px}
+    .tg .tg-47zg{font-weight:bold;background-color:#000000;color:#ffffff}
+    </style>
 <div class="main_container_general">
  
     <div class="top_container_teacher" style="height:420px ;background-color: #9BBA1F;">
@@ -47,7 +80,7 @@
     </div>
   <div class="mid_content_general">
     <div class='page'>
-            <div class="navigation" id="navigation">
+            <div class="navigation expanded" id="navigation">
                 <a class="nav-toggler" href="#" id="navToggler">
                     <span class="show-nav">&#9776;</span>
                     <span class="hide-nav">&times;</span>
@@ -61,6 +94,7 @@
                         <li onclick="return AddAssessment();"><a href="#main_teacher">Add Assessment</a></li>
                         <li onclick="return EditAssessment();"><a href="#main_teacher">Edit Assessment</a></li>
                         <li onclick="return DeleteAssessment();"><a href="#main_teacher">Delete Assessment</a></li>
+                        <li ><a href="<?php echo base_url();?>teacher/result_card">Result Cards</a></li>
                         <li ><a href="<?php echo base_url();?>DataEntry/ViewStudents">View Student</a></li>
                         <li onclick="return ChangePassword();"><a href="#main_teacher">Change Password</a></li>
                         <!--<li class="separator"></li>-->
@@ -99,21 +133,7 @@
                         <h1>Questions:</h1>
                     </div>
                    <div class="questions_wrapper">
-<!--                       
-                        <div class="add_question_teacher">
-                            <div class="question_leftside">
-                                <h1>    <?php //echo ++$question_number; ?>    :</h1>
-                                <textarea draggable="false" name="question_1" id="question_1" rows="5" required="required" placeholder="Write your question here..."></textarea>
-                            </div>
-                            <div class="question_rightside">
-                                <input type="text" name="CorrectOption1_1" value="" id="CorrectOption1_1" maxlength="20" placeholder="Correct Option" required="required" class="correctoption">
-                                <input type="text" name="QuestionOption2_1" value="" id="QuestionOption2_1" maxlength="20" placeholder="Wrong Option" required="required">
-                                <input type="text" name="QuestionOption3_1" value="" id="QuestionOption3_1" maxlength="20" placeholder="Wrong Option" required="required">
-                                <input type="text" name="QuestionOption4_1" value="" id="QuestionOption4_1" maxlength="20" placeholder="Wrong Option" required="required">
-                            </div>
-                        </div>
-                       -->
-                       
+
                     </div>
                     <div class="Add_another_question_tab">
                         <button id="add_question_button" type="button" onclick=" return addassess_addquestion();">Add Another Question</button>
@@ -128,15 +148,54 @@
                 <div class="heading_teacher">
                     <h1>Edit Assessment</h1>
                 </div>
-                
+            <br>
+            
+            <table class="tg">
+              <tr>
+                <th class="tg-47zg">Assessment ID</th>
+                <th class="tg-47zg">Assessment Name</th>
+                <th class="tg-47zg">Drill Name</th>
+                <th class="tg-47zg">Total Marks</th>
+                <th class="tg-47zg">Edit</th>
+              </tr>
+           <?php  foreach($assessments as $assessment) 
+           { 
+          
+            ?> 
+              <tr>
+                <td class="tg-031e">
+                    <?php echo $assessment['assessment_id'] ?>
+                </td>
+                <td class="tg-031e">
+                     <?php echo $assessment['assessment_name'] ?>
+                </td>
+                <td class="tg-031e">
+                     <?php echo $assessment['drill_name'] ?>
+                </td>
+                <td class="tg-031e">
+                     <?php echo $assessment['total_marks'] ?>
+                </td>
+                <td class="tg-k6pi">
+                    <button onclick = "SubmitAssessmentForm('<?php echo $assessment['assessment_name'] ?>')">Edit</button>
+                </td>
+              </tr>
+              <?php }?>
+<!--              <tr>
+                <td class="tg-031e"></td>
+                <td class="tg-031e"></td>
+                <td class="tg-031e"></td>
+                <td class="tg-031e"></td>
+                <td class="tg-031e"></td>
+              </tr>-->
+            </table>
                 <form id="edit_assessment_form" name="edit_assessment_form" method="POST" action="<?php echo base_url();?>DataEntry/edit_assessment">
                     <div class="labelandtextbox">
-                        <label>Search Assessment:</label>
-                        <input type="text" name="EditAssessment_name" value="<?php if($scroll_to_div== "edit_assess_search_no_match" || $scroll_to_div== "edit_assess_search_match"){  echo $searched_assessment;  }?>" id="EditAssessment_name" maxlength="20" placeholder="Enter Assessment Name" required="required">
+                       
+                        <input type="hidden" name="EditAssessment_name" value = "<?php if($scroll_to_div== "edit_assess_search_no_match" || $scroll_to_div== "edit_assess_search_match"){  echo $searched_assessment;  }?>" id="EditAssessment_name" maxlength="20" placeholder="Enter Assessment Name" required="required">
                     </div>
-                    <div class="submit_button_teacher">
+<!--                    <div class="submit_button_teacher">
                         <input type="submit" value='Search Assessment'>
-                    </div>
+                    </div>-->
                 </form>
                 <?php if($scroll_to_div== "edit_assess_search_match") 
                     { ?>
@@ -187,6 +246,52 @@
                 </form>
             </div>
             
+                <div id="result_card_div" class="result_card_div">
+                    <div class="heading_teacher">
+                        <h1>Students Statistics</h1>
+                        
+                    </div>
+                   <?php if($results) { ?>
+                    
+                    
+                    <?php if ($results){?>
+                    <div style="padding:25px;margin:auto;text-align:center;"  >
+                    <button class="btn-large btn-success"><a id="btnExport" >Export to Excel Sheet! </a></button>
+                    </div>
+                    <?php } ?>
+                    <table class="tg" id="result_table">
+                        <tr>
+                          <th class="tg-c5de marks_th">Sr.No</th>
+                          <th class="tg-c5de result_name_th">Name</th>
+                          <?php for ($i = 0 ; $i<$assess_count; $i++) { ?>
+                          <th class="tg-c5de marks_th "><?php echo 'A'.($i+1); ?> </th>
+                          <?php } ?>
+                          <th class="tg-c5de">Total Marks</th>
+                          <th class="tg-c5de">Position</th>
+                        </tr>
+                        <?php for ( $srno= 0 ; $srno < count($results); $srno++ ) {?>
+                        <tr>
+                          
+                          <td class="tg-031e marks_th"><?php echo $srno+1;?></td>
+                          <td class="tg-031e result_name_th"><?php echo $results[$srno]['name']; ?></td>
+                            
+                          <?php for ($i = 0 ; $i< $assess_count; $i++) { ?>
+                          <td class="tg-031e marks_th"><?php echo $results[$srno][$i];?> </td>
+                          <?php } ?>
+                          <td class="tg-031e"> <?php echo $results[$srno]['total_marks'];?> </td>
+                          <td class="tg-031e"> <?php echo $results[$srno]['position'];?></td>
+                          
+                        </tr>
+                        
+                        
+                        <?php } ?>
+                    </table>
+                   <?php } else { ?>
+                   
+                    <div class=" error_main_container "><label class="error_label"> No Students Yet!</label> </div>
+                   <?php }?>
+                    
+            </div>
             <div id="view_students_div" class="view_students_div">
                 <div class="heading_teacher">
                     <h1>Viewing Students</h1>
@@ -199,7 +304,7 @@
                     <?php if($scroll_to_div=="view_student" && $no_of_students==0)
                         { ?>
                         <div class="student_block_long_heading">
-                            <label>You Have ---></label>
+                            <label>You Have </label>
                         </div>
                         <div class="student_block_long_heading">
                             <label>Zero Students</label>
@@ -239,6 +344,10 @@
               </div>
             </div>
         </div>
+
+</div>
+    
+</div>
 <script type="text/javascript">
     var question_number;    //teep track of no. of questions in add_assessment div
     var question_limit =5;  //limit on no. of questions in add_assessment div
@@ -249,6 +358,7 @@
         $("#edit_assessment_div").hide();
         $("#delete_assessment_div").hide();
         $("#view_students_div").hide();
+        $("#result_card_div").hide();
         addassess_addquestion();
         <?php if($scroll_to_div == "add_assess")
                 { ?>
@@ -299,12 +409,18 @@
                 start_work_click();
                 ViewStudents();       
                 
+        <?php } else if($scroll_to_div == "result_card")
+            { ?>
+                 alertify.error("Result Card Generated uptil "+ Date());
+                 start_work_click();
+                 SeeResultCards();
+                
         <?php } ?>
             
             
         return true;
     }
-    window.onload = codeAddress;    //runs on start
+    
     
     function start_work_click()
     {
@@ -320,6 +436,7 @@
         $("#edit_assessment_div").hide();
         $("#delete_assessment_div").hide();
         $("#view_students_div").hide();
+        $("#result_card_div").hide();
         return true;
     }
     function AddAssessment()
@@ -328,6 +445,14 @@
         $("#add_assessment_div").show();
         return true;
     }
+    
+    function SeeResultCards()
+    {
+        hide_alldivs();
+        $("#result_card_div").show();
+        return true;
+    }
+    
     function EditAssessment()
     {
         hide_alldivs();
@@ -384,10 +509,6 @@
         element.value = $( "#drill_select option:selected" ).text();
     }
 </script>
-</div>
-    
-</div>
-
 <!--Navigation panel script-->
 <script type="text/javascript">
 (function ($, window, document, undefined) {

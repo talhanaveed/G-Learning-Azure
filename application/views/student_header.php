@@ -4,7 +4,7 @@
     <title><?php echo $page_title; ?></title>
     <meta charset="utf-8">
     <link rel="icon" href="<?php echo base_url(); ?>/assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/bootstrap.css" type="text/css" media="screen">
+    <!--<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/bootstrap.css" type="text/css" media="screen">-->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/student_dashboard.css" type="text/css" media="screen">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/responsive.css" type="text/css" media="screen">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/bootstrap-select.css" type="text/css" media="screen">

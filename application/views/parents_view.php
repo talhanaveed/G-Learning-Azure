@@ -2,6 +2,17 @@
 <link href="<?php echo base_url();?>assets/css/nav_menu.css" rel="stylesheet" type="text/css">
 <!--Navigation panel script-->
 <script type="text/javascript">
+
+    $(document).ready(function(){
+        setInterval(function(){ 
+            $('#loadingGif').hide();
+            $('#report_card').show();
+            $('#book_main_page').show();
+            $('#assignment_list').show();
+        }, 3000);
+    });
+    
+
 (function ($, window, document, undefined) {
     $(function () {
         var $navigation = $('#navigation'), $navToggler = $('#navToggler');
@@ -29,7 +40,9 @@
         <label>Parents Portal</label>
     </div>
     <div class='page'>
-            <div class="navigation" id="navigation">
+
+            <div class="navigation expanded" id="navigation">
+
                 <a class="nav-toggler" href="#" id="navToggler">
                     <span class="show-nav">&#9776;</span>
                     <span class="hide-nav">&times;</span>
@@ -39,7 +52,9 @@
                         <li>
                             <h2>Menu</h2>
                         </li>
+
                        <li><a class="current" href="#">Parent Portal</a></li>
+
                         <!--<li class="separator"></li>-->
                         <li><a href="<?php echo base_url();?>login/logout">Logout</a></li>
                     </ul>
@@ -48,115 +63,61 @@
 	</div>  
     
     <div class="mid_content_general">
-        <div class="flipbook-viewport">
+        <div id="loadingGif">
+            <img src="<?php echo base_url();?>/assets/images/loading.gif"/>
+        </div>
+        <div class="flipbook-viewport" id="report_card">
             <div class="container">
 		<div class="flipbook">
-                    <div class="book_main_page">
+                    <div class="book_main_page" id="book_main_page">
                         <div class="report_card_heading">
                             <label class="school_name">National University of Computer & Emerging Sciences</label><br/>
                             <label class="report_name">Report Card</label><br/>
                             <label class="student_name"><?php echo $name;?></label>
                         </div>
                     </div>
-                    <div class="assignment_list">
+                    <div class="assignment_list" id="assignment_list">
                         <div class="result_sheet_heading">Result Sheet</div>
-                        <div id="content-1" class="scroll_content">
-                            <div class="CSSTableGenerator">
-                                <table>
-                                    <tr style="border:1px solid #7f0000 !important;"> 
-                                        <td>Assignment Name</td>
-                                        <td >Obtained Marks</td>
-                                        <td>Total Marks</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Addition</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even/Odd</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Multiplication</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Addition</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even/Odd</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Multiplication</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Addition</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even/Odd</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Multiplication</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Addition</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even/Odd</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Multiplication</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Addition</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Even/Odd</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Multiplication</td>
-                                        <td>100</td>
-                                        <td>90</td>
-                                    </tr>
-                                </table>
+                        <?php if($AssessmentCount != 0){?>
+                            <div id="content-1" class="scroll_content">
+                                <div class="CSSTableGenerator">
+                                    <table>
+                                        <tr style="border:1px solid #7f0000 !important;"> 
+                                            <td>Assessment Name</td>
+                                            <td >Obtained Marks</td>
+                                            <td>Total Marks</td>
+                                        </tr>
+                                        <?php for($i = 0; $i < $AssessmentCount; $i++){ ?>
+                                            <tr>
+                                                <td><?php echo $gradeSheet[$i][0]; ?></td>
+                                                <td><?php echo $gradeSheet[$i][1]; ?></td>
+                                                <td><?php echo $gradeSheet[$i][2]; ?></td>
+                                            </tr>
+                                        <?php }?>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                        <?php }else {?>
+                            <div class="result_sheet_heading">No Assessment Attempted Yet!</div>
+                        <?php }?>
                     </div>
+                    
                     <div class="graph_container">
                         <label>Performance Graph</label>
+                        <?php if($AssessmentCount != 0){?>
                         <div class="graph_body">
                             <div class="scrollTo-demo">
                                 <div class="scroll_content demo-x">
                                     <canvas id="canvas"></canvas>
                                 </div>
                             </div>
-                            <label>Remarks: <span>Pay Attention on Addition</span></label>
+                            <?php if($minAssessment != "") {?>
+                                <label>Remarks: <span>Pay Attention on <?php echo $minAssessment;?></span></label>
+                            <?php } ?>
                         </div>
+                        <?php }else {?>
+                            <div class="result_sheet_heading">No Assessment Attempted Yet!</div>
+                        <?php }?>
                     </div>
 		</div>
             </div>
@@ -165,37 +126,74 @@
 </div>
 
 <script type="text/javascript">
+    var assessmentNames = new Array();
+    var myMarks = new Array;
+    var maxMarks = new Array;
+    var counter = 0;
+    var myBar;
+    
+    $(document).ready(function(){
+        var baseurl = "<?php print base_url();?>";
+        $.ajax({
+            url:  baseurl +"parents/getAssessmentsGraph",
+            type:'POST',
+            cache:false,
+            dataType: 'json',
+            data: {},
+            success:function(data){
+                if(data){
+                    for(var i = 0; i < data.length; i++){
+                        assessmentNames[counter] = data[i][0];
+                        myMarks[counter] = data[i][1];
+                        maxMarks[counter] = data[i][3];
+                        counter++;
+                    }
+                    var barChartData = {
+                        labels : ["assessmentNames"],
+                        datasets : [
+                            {
+                                label: "Maximum Marks",
+                                fillColor : "rgba(220,220,220,0.5)",
+                                strokeColor : "rgba(220,220,220,0.8)",
+                                highlightFill: "rgba(220,220,220,0.75)",
+                                highlightStroke: "rgba(220,220,220,1)",
+                                data : [randomScalingFactor()]
+                            },
+                            {
+                                label: "My Marks",
+                                fillColor : "rgba(151,187,205,0.5)",
+                                strokeColor : "rgba(151,187,205,0.8)",
+                                highlightFill : "rgba(151,187,205,0.75)",
+                                highlightStroke : "rgba(151,187,205,1)",
+                                data : [randomScalingFactor()]
+                            }
+                        ]
+                    }
+                    window.onload = function(){
+                        var ctx = document.getElementById("canvas").getContext("2d");
+                        ctx.canvas.width = 460;
+                        ctx.canvas.height = 400;
+                        myBar = new Chart(ctx).Bar(barChartData, {
+                                responsive : false
+                        });
+                        for(var j = 0; j < assessmentNames.length; j++){
+                            var array = new Array();
+                            array[0] = maxMarks[j];
+                            array[1] = myMarks[j];
+                            myBar.addData( array, assessmentNames[j]);
+                        }
+                        myBar.removeData();
+                    };
+                }
+            },
+            error:function(x,e){
+            }
+        }); 
+    });
 
-var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-
-	var barChartData = {
-		labels : ["Even","Odd","Addition","Subtraction","Multiplication"],
-		datasets : [
-			{
-				fillColor : "rgba(220,220,220,0.5)",
-				strokeColor : "rgba(220,220,220,0.8)",
-				highlightFill: "rgba(220,220,220,0.75)",
-				highlightStroke: "rgba(220,220,220,1)",
-				data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
-			},
-			{
-				fillColor : "rgba(151,187,205,0.5)",
-				strokeColor : "rgba(151,187,205,0.8)",
-				highlightFill : "rgba(151,187,205,0.75)",
-				highlightStroke : "rgba(151,187,205,1)",
-				data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
-			}
-		]
-
-	}
-	window.onload = function(){
-		var ctx = document.getElementById("canvas").getContext("2d");
-                ctx.canvas.width = 460;
-                ctx.canvas.height = 400;
-		window.myBar = new Chart(ctx).Bar(barChartData, {
-			responsive : false
-		});
-	}
+        var randomScalingFactor = function(){ 
+            return Math.round(Math.random()*100)
+        };
 
 function loadApp() {
 	// Create the flipbook

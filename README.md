@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 G-LEARNING
 ==========
 
-**CURRENTLY WORKING ON**
-- Login page (Talha)
-- Dashboard (Haider)
-- Home (Adil)
-- Admin (Zain)
+**LEARNING THROUGH GAMES**
+=======
+G-LEARNING
+==========
+
+**LEARNING THROUGH GAMES**
+>>>>>>> master
