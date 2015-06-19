@@ -143,7 +143,7 @@
 
            foreach($drills as $drill) 
            { 
-            if($count > $this->session->userdata('drill_level'))
+            if($count >= $this->session->userdata('drill_level'))
                 {
                     break;
                  }
