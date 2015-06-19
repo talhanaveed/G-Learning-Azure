@@ -238,7 +238,7 @@ class DataEntry extends CI_Controller{
                 $this->load->view('teacher_home');
                 $this->load->view('footer_new_design');
                 
-            return false;
+         .//   return false;
         }else
         {
                 //loading delete_assess
@@ -258,8 +258,8 @@ class DataEntry extends CI_Controller{
                 $this->load->view('teacher_home');
                 $this->load->view('footer_new_design');
                 
-                echo $teacher_id;
-            return true;
+        //        echo $teacher_id;
+       //     return true;
         }
     }
     
