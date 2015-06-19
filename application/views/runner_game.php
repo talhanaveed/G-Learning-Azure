@@ -207,6 +207,11 @@
 		</style>
 	</head>
 	<body>
+		<div style="" class="connectionState">
+
+			<h1>Connection Lost</h1>
+			<p>Please check your internet connection.</p>
+		</div>
 		<p class="header"><span>Unity Web Player | </span>Runner</p>
 		<div class="content">
 			<div id="unityPlayer">
