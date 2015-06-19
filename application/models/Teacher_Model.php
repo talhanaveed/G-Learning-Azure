@@ -51,7 +51,7 @@ class Teacher_Model extends CI_Model {
         $this->db->from('login');
         $this->db->join('person', 'person.person_id = login.person_id');
       //  $this->db->join('gradesheet', 'gradesheet.student_id = login.person_id');
-        $this->db->group_by('person.person_id');
+        $this->db->group_by('person.person_id,first_name,last_name,email');
        // $this->db->order_by('score', 'desc');
         $results = $this->db->get();
         
