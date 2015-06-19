@@ -95,20 +95,25 @@ class games extends CI_Controller{
         $this->load->view('footer');
     }
     
-    public function topicAssessment()
+      public function topicAssessment()
     {
         $this->load->model('levels_model');
         $questionArray = array(array());
         $questionArray = $this->levels_model->getAssessmentQuestions();
+        $myQuestionsArray = array();
+        $myQuestionsArray[0] = count($questionArray);
+        $myQuestionsArray[1] = $questionArray;
+        echo json_encode($myQuestionsArray);
         
-        $data['page_title'] = 'G-Learning | Assessment';
+        /*$data['page_title'] = 'G-Learning | Assessment';
         $data['questionArray'] = $questionArray;
         $data['questionCount'] = count($questionArray);
         
         $this->load->view('main_header_new',$data);
         $this->load->view('topicAssessment_view', $data);
-        $this->load->view('footer');
+        $this->load->view('footer');*/
     }
+   
     
 
       

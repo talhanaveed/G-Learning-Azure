@@ -20,7 +20,9 @@ class Parents extends CI_Controller
             redirect('admin');
         }
         if(strcmp($this->session->userdata('type'),'parent')==0)
-        {}
+        {
+           
+        }
         else
         {
 

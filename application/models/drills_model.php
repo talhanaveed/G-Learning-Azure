@@ -29,22 +29,12 @@ class drills_model extends CI_Model {
         return $this->db->count_all_results('drill');
     }
     
-    public function get_assessments($drill_level,$id)
+    public function get_assessments($id)
     {   
-        $this->db->select('*');
-        
-        $this->db->where('drill_id',$drill_level);
-        //$this->db->where('gradesheet.student_id !=',$id);
         $this->db->from('assessment');
         $this->db->join('gradesheet','gradesheet.assessment_id = assessment.assessment_id');
-        //$this->db->where('gradesheet.student_id',$id);
-                
-        $assessments =$this->db->get();
-        print_r($assessments->result_array());
-//        if ($assessments->num_rows > 0 )
-//            return $assessments->result_array();
-//        else
-//            return 0;
+        $this->db->where('gradesheet.student_id', $id);
+        return $this->db->get()->result();
     }
     public function incrementDrillLevel()
     {

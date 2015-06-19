@@ -13,7 +13,6 @@ class login_model extends CI_Model {
     public function checkLoginParent($username, $password, $type)
     {
         $this->db->where('username', $username);
-        
         $query = $this->db->get('login');
         if ($query->num_rows == 1)
         {
@@ -25,7 +24,7 @@ class login_model extends CI_Model {
                 $this->session->set_userdata('person_id',$row->person_id);
                 $this->session->set_userdata('school_id',$row->school_id);
                 $this->session->set_userdata('username',$row->username);
-                $this->session->set_userdata('type',"parent");
+                $this->session->set_userdata('type',$row->type);
                 $this->session->set_userdata('validated',true);
                 $person_id = $row->person_id;
                 $this->db->where('person_id', $person_id);

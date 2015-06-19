@@ -129,10 +129,9 @@
                        <input type="hidden" name="hidden_drill_id" id="hidden_drill_id" value="Addition" />
                         <label>Select Drill:</label>
                         <select id="drill_select" onchange="updatehiddenselect();" required="required">
-                            <option value="1" selected>Addition</option>
-                                <option value="2">Even/Odd</option>
-                                <option value="3">Highest/Lowest</option>
-                                <option value="4">Multiples</option>
+                            <?php for($i = 0; $i < $drillsCount; $i++){ ?>
+                            <option value="<?php echo $drillsNames[$i]; ?>"><?php echo $drillsNames[$i]; ?></option>
+                            <?php } ?>
                         </select>
                    </div>
                     <div class="subheading_teacher">

@@ -5,15 +5,15 @@
 		<title>Unity Web Player | BalloonParty</title>
 		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
 		<script type="text/javascript">
-		<!--
+		
 		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
 		if (document.location.protocol == 'https:')
 			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
 		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
-		-->
+		
 		</script>
 		<script type="text/javascript">
-		<!--
+		
                         var level = <?php echo $level;?>;
                         var drill_id = <?php echo $drill_id;?>;
 			var config = {

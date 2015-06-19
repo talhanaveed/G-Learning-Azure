@@ -84,7 +84,7 @@
                             {
                                 var baseurl = "<?php print base_url(); ?>";
                                 $.ajax({
-                                    url:  baseurl +"index.php/games/logScore",
+                                    url:  baseurl +"games/topicAssessment",
                                     type:'POST',
                                     cache:true,
                                     dataType: 'json',

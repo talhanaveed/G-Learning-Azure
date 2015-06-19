@@ -47,12 +47,21 @@ class DataEntry extends CI_Controller{
             }
             
             //loading add_view
-                $data['page_title'] = 'G-Learning | Teacher';
-                $data['scroll_to_div'] = 'add_assess';
-                $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-                $this->load->view('main_header_new',$data);
-                $this->load->view('teacher_home');
-                $this->load->view('footer');
+            $data['page_title'] = 'G-Learning | Teacher';
+            $data['scroll_to_div'] = 'add_assess';
+            $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
+            $drills = $this->Teacher_Model->getAllDrills();
+            $myDrillNames = array();
+            $i = 0;
+            foreach($drills as $drill){
+                $myDrillNames[$i] = $drill->topic_name;
+                $i++;
+            }
+            $data['drillsNames'] = $myDrillNames;
+            $data['drillsCount'] = count($myDrillNames);
+            $this->load->view('header_only_image',$data);
+            $this->load->view('teacher_home');
+            $this->load->view('footer_new_design');
         }
     }
     //helping funtion for AddAssessment
@@ -94,9 +103,18 @@ class DataEntry extends CI_Controller{
                    $data['searched_assessment']= $assess_name;
                    $data['page_title'] = 'G-Learning | Teacher';
                    $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-                   $this->load->view('main_header_new',$data);
-                   $this->load->view('teacher_home');
-                   $this->load->view('footer');
+                   $drills = $this->Teacher_Model->getAllDrills();
+                    $myDrillNames = array();
+                    $i = 0;
+                    foreach($drills as $drill){
+                        $myDrillNames[$i] = $drill->topic_name;
+                        $i++;
+                    }
+                    $data['drillsNames'] = $myDrillNames;
+                    $data['drillsCount'] = count($myDrillNames);
+                    $this->load->view('header_only_image',$data);
+                    $this->load->view('teacher_home');
+                    $this->load->view('footer_new_design');
         }else{
             
             $i = 0;
@@ -114,9 +132,18 @@ class DataEntry extends CI_Controller{
                     $data['no_of_questions'] = $i;
                     $data['page_title'] = 'G-Learning | Teacher';
                     $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-                    $this->load->view('main_header_new',$data);
+                    $drills = $this->Teacher_Model->getAllDrills();
+                    $myDrillNames = array();
+                    $i = 0;
+                    foreach($drills as $drill){
+                        $myDrillNames[$i] = $drill->topic_name;
+                        $i++;
+                    }
+                    $data['drillsNames'] = $myDrillNames;
+                    $data['drillsCount'] = count($myDrillNames);
+                    $this->load->view('header_only_image',$data);
                     $this->load->view('teacher_home');
-                    $this->load->view('footer');
+                    $this->load->view('footer_new_design');
                 
             }
         }
@@ -125,7 +152,7 @@ class DataEntry extends CI_Controller{
     public function update_assessment()
     {
         $no_of_questions   = $this->security->xss_clean($this->input->post('update_hiddenfield_noofqs'));
-        
+        $teacher_id = $this->session->userdata['person_id'];
         $this->load->model('Teacher_Model');
         
         for( $z=0; $z<$no_of_questions; $z++)
@@ -134,8 +161,8 @@ class DataEntry extends CI_Controller{
             $statement  = $this->security->xss_clean($this->input->post('update_question_' . $z));
             $answer   = $this->security->xss_clean($this->input->post('update_CorrectOption1_' . $z));
             $option1   = $this->security->xss_clean($this->input->post('update_QuestionOption2_' . $z));
-            $option2   = $this->security->xss_clean($this->input->post('update_QuestionOption2_' . $z));
-            $option3   = $this->security->xss_clean($this->input->post('update_QuestionOption3_' . $z));
+            $option2   = $this->security->xss_clean($this->input->post('update_QuestionOption3_' . $z));
+            $option3   = $this->security->xss_clean($this->input->post('update_QuestionOption4_' . $z));
             
             $result = $this->Teacher_Model->update_assessment_question($q_id,$statement,$answer,$option1,$option2,$option3);
            if($result==0)
@@ -144,9 +171,18 @@ class DataEntry extends CI_Controller{
                 $data['searched_assessment']= $assess_name;
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-                $this->load->view('main_header_new',$data);
+                $drills = $this->Teacher_Model->getAllDrills();
+                $myDrillNames = array();
+                $i = 0;
+                foreach($drills as $drill){
+                    $myDrillNames[$i] = $drill->topic_name;
+                    $i++;
+                }
+                $data['drillsNames'] = $myDrillNames;
+                $data['drillsCount'] = count($myDrillNames);
+                $this->load->view('header_only_image',$data);
                 $this->load->view('teacher_home');
-                $this->load->view('footer');    
+                $this->load->view('footer_new_design');
                 return 0;
            }
         }
@@ -154,9 +190,18 @@ class DataEntry extends CI_Controller{
                     $data['page_title'] = 'G-Learning | Teacher';
                     $data['scroll_to_div'] = 'update_assess';
                     $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-                    $this->load->view('main_header_new',$data);
+                    $drills = $this->Teacher_Model->getAllDrills();
+                    $myDrillNames = array();
+                    $i = 0;
+                    foreach($drills as $drill){
+                        $myDrillNames[$i] = $drill->topic_name;
+                        $i++;
+                    }
+                    $data['drillsNames'] = $myDrillNames;
+                    $data['drillsCount'] = count($myDrillNames);
+                    $this->load->view('header_only_image',$data);
                     $this->load->view('teacher_home');
-                    $this->load->view('footer');
+                    $this->load->view('footer_new_design');
                 
     }
     
@@ -174,9 +219,18 @@ class DataEntry extends CI_Controller{
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'delete_failed';
                 $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-                $this->load->view('main_header_new',$data);
+                $drills = $this->Teacher_Model->getAllDrills();
+                $myDrillNames = array();
+                $i = 0;
+                foreach($drills as $drill){
+                    $myDrillNames[$i] = $drill->topic_name;
+                    $i++;
+                }
+                $data['drillsNames'] = $myDrillNames;
+                $data['drillsCount'] = count($myDrillNames);
+                $this->load->view('header_only_image',$data);
                 $this->load->view('teacher_home');
-                $this->load->view('footer');
+                $this->load->view('footer_new_design');
                 
             return false;
         }else
@@ -185,9 +239,18 @@ class DataEntry extends CI_Controller{
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'delete_assess';
                  $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-                $this->load->view('main_header_new',$data);
+                $drills = $this->Teacher_Model->getAllDrills();
+                $myDrillNames = array();
+                $i = 0;
+                foreach($drills as $drill){
+                    $myDrillNames[$i] = $drill->topic_name;
+                    $i++;
+                }
+                $data['drillsNames'] = $myDrillNames;
+                $data['drillsCount'] = count($myDrillNames);
+                $this->load->view('header_only_image',$data);
                 $this->load->view('teacher_home');
-                $this->load->view('footer');
+                $this->load->view('footer_new_design');
                 
                 echo $teacher_id;
             return true;
@@ -215,7 +278,16 @@ class DataEntry extends CI_Controller{
                 $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
 
                 $data['scroll_to_div'] = 'view_student';
-                $this->load->view('main_header_new',$data);
+                $drills = $this->Teacher_Model->getAllDrills();
+                $myDrillNames = array();
+                $i = 0;
+                foreach($drills as $drill){
+                    $myDrillNames[$i] = $drill->topic_name;
+                    $i++;
+                }
+                $data['drillsNames'] = $myDrillNames;
+                $data['drillsCount'] = count($myDrillNames);
+                $this->load->view('header_only_image',$data);
                 $this->load->view('teacher_home');
                 $this->load->view('footer_new_design');
             }

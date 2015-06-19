@@ -9,7 +9,6 @@
 </script>
 
 <div class="main_container_general ">
-    
     <div class='page'>
             <div class="navigation expanded" id="navigation">
                 <a class="nav-toggler" href="#" id="navToggler">
@@ -33,19 +32,22 @@
         <div class="heading_teacher">
             <h1>Assessments</h1>
         </div>
-            <?php if ($assessment != 0){?>
+        <br/>
+            <?php if ($assessmentCount != 0){?>
                 <table class="assess_tbl">
                     <tr>
                         <th class="tg-72fa">Sr.No</th>
                         <th class="tg-72fa">Assessment Name</th>
-                        <th class="tg-72fa">Action</th>
+                        <th class="tg-72fa">Marks Obtained</th>
+                        <th class="tg-72fa">Total Marks</th>
                     </tr>
                     
-                    <?php  for ($i = 0 ; $i < count($assessment) ; $i++) { ?>
+                    <?php  for ($i = 0 ; $i < $assessmentCount ; $i++) { ?>
                     <tr>
                         <td class="tg-eymq"><?php echo $i+1; ?></td>
-                        <td class="tg-eymq"><?php echo $assessment[$i]['assessment_name']; ?></td>
-                        <td class="tg-eymq"><a id='<?php echo 'edit_'.$assessment[$i]['assessment_id']; ?>'>  </a></td>
+                        <td class="tg-eymq"><?php echo $assessment[$i][0]; ?></td>
+                        <td class="tg-eymq"><?php echo $assessment[$i][1]; ?></td>
+                        <td class="tg-eymq"><?php echo $assessment[$i][2]; ?></td>
                     </tr>
                     <?php } ?>
                 </table>

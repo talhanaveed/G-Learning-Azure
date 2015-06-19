@@ -6,6 +6,11 @@ class Teacher_Model extends CI_Model {
         parent::__construct(); 
         $this->load->helper('date');
     }
+    
+    public function getAllDrills(){
+        return $this->db->get('drill')->result();
+    }
+    
     public function insert_new_question($assess_id,$question_staement,$question_answer,$question_option1,$question_option2,$question_option3,$complexity_level)
     {
         $question_status=false;

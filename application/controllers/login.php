@@ -20,10 +20,7 @@ class login extends CI_Controller{
         $username = $this->security->xss_clean($this->input->post('username'));
         $password = $this->security->xss_clean($this->input->post('password'));
         $type = $this->security->xss_clean($this->input->post('type'));
-        
-        
         if($type != "parent"){
-            
             // Model Function Call
             $result = $this->login_model->checkLogin($username,$password,$type);
 
@@ -61,7 +58,6 @@ class login extends CI_Controller{
             }
        }
     }
-    
     public function logout()
     {
         $this->session->unset_userdata('errorFlag');
