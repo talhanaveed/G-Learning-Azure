@@ -116,7 +116,37 @@
                         }
                     }); 
                 }
-		-->
+			  $(document).ready(function() {
+               	 $('.connectionState').hide();     
+               	 setInterval(function () {
+
+               	 	var baseurl = "<?php print base_url(); ?>";
+                    $.ajax({
+                        url:  baseurl +"games/testConnection",
+                        type:'POST',
+                        data: {drill_id : drill_id},
+                        dataType: 'json',
+                        success:function(data)
+                        {
+                        	if(data)
+                            {            
+                            $('.connectionState').hide();        
+                               
+                              //  alert(data);
+                            }
+                            //else
+                                //alert("Error Parsing XML");
+                        },
+                        error:function(x,e){
+
+                        //	alert("Server down");
+                        	$('.connectionState').show();
+                        }
+                    }); 
+
+
+               	 }, 3000);
+               });
 		</script>
 		<style type="text/css">
 		<!--
