@@ -199,7 +199,7 @@ public function insert_new_assessment($assess_name,$total_marks,$drill_id,$teach
             foreach ($assess_id as $id)
                 array_push($assessments_id,$id);
         }
-        
+        print_r($assessments_id);
         
         foreach ($assessments_id as $a)
         {
