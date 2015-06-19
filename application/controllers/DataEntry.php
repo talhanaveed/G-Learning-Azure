@@ -215,12 +215,15 @@ class DataEntry extends CI_Controller{
     {
         $teacher_id = $this->session->userdata['person_id'];
         $school_id=$this->session->userdata['school_id'];
-        
+         $ms2 = "hey there OUTside ";
+            echo $ms2;
         $assess_name  = $this->security->xss_clean($this->input->post('DeleteAssessment_name'));
         $this->load->model('Teacher_Model');
         $result = $this->Teacher_Model->delete_assessment($assess_name,$school_id,$teacher_id);
         if ( $result==0) //insertion failed
         {
+             $ms = "hey there inside ";
+            echo $ms;
             //loading delete_assess
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'delete_failed';
@@ -241,14 +244,17 @@ class DataEntry extends CI_Controller{
          //   return false;
         }else
         {
+            $ms = "hey there inside ";
+            echo $ms;
                 //loading delete_assess
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'delete_assess';
-                 $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
+                $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
                 $drills = $this->Teacher_Model->getAllDrills();
                 $myDrillNames = array();
                 $i = 0;
-                foreach($drills as $drill){
+                foreach($drills as $drill)
+                {
                     $myDrillNames[$i] = $drill->topic_name;
                     $i++;
                 }
