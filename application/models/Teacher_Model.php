@@ -196,7 +196,7 @@ public function insert_new_assessment($assess_name,$total_marks,$drill_id,$teach
         
         foreach ($assessments->result() as $assess_id)
         {   
-                array_push($assessments_id,$$assess_id->assessment_id;
+                array_push($assessments_id,$$assess_id->assessment_id);
         }
         print_r($assessments_id);
         
