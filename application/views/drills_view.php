@@ -80,7 +80,7 @@
 
 </script>
 
-<div class="drill_page_body">
+<div class="drills_page_body">
     <div class="drills-content">
         <div class='page'>
             <div class="navigation expanded" id="navigation">
@@ -179,5 +179,5 @@
             </div>
         </div>
     </div>
->>>>>>> master
+
 </div>

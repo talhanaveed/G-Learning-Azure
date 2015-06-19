@@ -15,7 +15,7 @@
 |
 */
 
-$config['base_url']	= 'http://glearning-test.azurewebsites.net';
+$config['base_url']	= 'http://localhost:81/G-Learning';
 
 /*
 |--------------------------------------------------------------------------

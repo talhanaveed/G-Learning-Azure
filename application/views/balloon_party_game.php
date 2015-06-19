@@ -14,9 +14,7 @@
 		</script>
 		<script type="text/javascript">
 		<!--
-
-                        var mylevel = <?php echo $level;?>;
-
+                        var level = <?php echo $level;?>;
                         var drill_id = <?php echo $drill_id;?>;
 			var config = {
 				width: 960, 
@@ -60,59 +58,61 @@
 				});
 				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/Balloon_Party.unity3d");
 			});
-
-                function updateRange()
-				{
-                                //    alert("Range");
-                                    if(mylevel==1)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "5");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "20");
-                                    }
-
-                                    if(mylevel==2)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "20");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "60");
-                                    }
-
-                                    if(mylevel==3)
-                                    {
-                                        u.getUnity().SendMessage("GameManager", "setlowerRange", "60");
-                                        u.getUnity().SendMessage("GameManager", "setupperRange", "99");    
-                                    }
-                                }
-
-               function UnityCall( arg )
-                {                                   
+			 function SayHello( arg )
+                {
+                  
                     updateRange();
                 }
-                function endGame( arg )
+                function updateRange()
+				{
+                    //    alert("Range");
+                        if(level==1)
+                        {
+                            u.getUnity().SendMessage("GameManager", "setRange", "20");
+                        }
+                        if(level==2)
+                        {
+                           u.getUnity().SendMessage("GameManager", "setRange", "35");
+                        }
+                        if(level==3)
+                        {
+                             u.getUnity().SendMessage("GameManager", "setRange", "75");  
+                        }
+    			}
+               function UnityCall( arg )
+				{
+                                    //    alert( arg );
+				    updateRange();
+				}
+				function endGame( arg )
                 {
-                    score(arg);
-
-                    window.location.href = "<?php echo base_url();?>"+"games/shootEmUp";
-
+                	score(arg);
+                   
                 }
-                function score(arg)
+				function score(arg)
                 {
-                var percentageScore = arg;
-                var baseurl = "<?php print base_url(); ?>";
-                $.ajax({
-                    url:  baseurl +"games/logScore",
-                    type:'POST',
-                    data: {drill_id : drill_id , level :level, percentageScore : percentageScore},
-                    cache:false,
-                    dataType: 'json',
-                    success:function(data)
-                    {
-                        window.location.href = "<?php echo base_url();?>"+"games/shootEmUp";
+                	var percentageScore = arg;
+                    var baseurl = "<?php print base_url(); ?>";
+                    $.ajax({
+                        url:  baseurl +"games/logScore",
+                        type:'POST',
+                        data: {drill_id : drill_id , level :level, percentageScore : percentageScore},
+                        cache:false,
+                        dataType: 'json',
+                        success:function(data)
+                        {
+                        	 window.location.href = "<?php echo base_url();?>"+"games/shootEmUp";
                             if(data)
                             {                    
+                               
+                              //  alert(data);
                             }
+                            //else
+                                //alert("Error Parsing XML");
                         },
                         error:function(x,e){
-                            //alert("Server down");
+
+                        	//alert("Server down");
                         }
                     }); 
                 }
@@ -148,7 +148,6 @@
 
                	 }, 3000);
                });
-
 		-->
 		</script>
 		<style type="text/css">

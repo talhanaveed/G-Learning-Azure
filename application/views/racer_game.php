@@ -15,9 +15,7 @@
 		</script>
 		<script type="text/javascript">
 		<!--
-
 		    var level = <?php echo $level;?>;
-
 		    var drill_id = <?php echo $drill_id;?>;
 		    var mode = "<?php echo $mode;?>";
 			var config = {
@@ -28,9 +26,7 @@
 			};
 			config.params["disableContextMenu"] = true; //This is the added line
 			var u = new UnityObject2(config);
-
 			jQuery(function() {
-
 				var $missingScreen = jQuery("#unityPlayer").find(".missing");
 				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
 				$missingScreen.hide();
@@ -65,7 +61,6 @@
 				});
 				u.initPlugin(jQuery("#unityPlayer")[0], "<?php echo base_url();?>assets/unitygames/Racer.unity3d");
 			});
-
 				     function log(msg) {
                                         setTimeout(function() {
                                             throw new Error(msg);
@@ -73,7 +68,6 @@
                                     }
             function updateRange()
                 {
-
                   
                     u.getUnity().SendMessage("NumberManager", "setMode", mode);
                 //  alert("Range")
@@ -85,7 +79,6 @@
                     
                     if(level==3)
                         u.getUnity().SendMessage("NumberManager", "setRange", "50");    
->>>>>>> master
                 
                  }
                 function SayHello( arg )
@@ -96,14 +89,12 @@
                                 
                 function endGame( arg )
                 {
-
                 	score(arg);
                     window.location.href = "<?php echo base_url();?>"+"games/assessmentBird";
                 }
                 function score(arg)
                 {
                 	var percentageScore = arg;
-
                     var baseurl = "<?php print base_url(); ?>";
                     $.ajax({
                         url:  baseurl +"games/logScore",
@@ -113,7 +104,6 @@
                         dataType: 'json',
                         success:function(data)
                         {
-
                             if(data)
                             {                    
                                
@@ -201,5 +191,4 @@
 		</div>
 		<p class="footer">&laquo; created with <a href="http://unity3d.com/unity/" title="Go to unity3d.com">Unity</a> &raquo;</p>
 	</body>
-
 </html>

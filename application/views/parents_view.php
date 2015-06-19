@@ -2,7 +2,7 @@
 <link href="<?php echo base_url();?>assets/css/nav_menu.css" rel="stylesheet" type="text/css">
 <!--Navigation panel script-->
 <script type="text/javascript">
-
+    
     $(document).ready(function(){
         setInterval(function(){ 
             $('#loadingGif').hide();
@@ -12,7 +12,6 @@
         }, 3000);
     });
     
-
 (function ($, window, document, undefined) {
     $(function () {
         var $navigation = $('#navigation'), $navToggler = $('#navToggler');
@@ -40,9 +39,7 @@
         <label>Parents Portal</label>
     </div>
     <div class='page'>
-
             <div class="navigation expanded" id="navigation">
-
                 <a class="nav-toggler" href="#" id="navToggler">
                     <span class="show-nav">&#9776;</span>
                     <span class="hide-nav">&times;</span>
@@ -52,9 +49,7 @@
                         <li>
                             <h2>Menu</h2>
                         </li>
-
-                       <li><a class="current" href="#">Parent Portal</a></li>
-
+                       <li><a class="current" href="#">Home</a></li>
                         <!--<li class="separator"></li>-->
                         <li><a href="<?php echo base_url();?>login/logout">Logout</a></li>
                     </ul>
@@ -103,7 +98,10 @@
                     </div>
                     
                     <div class="graph_container">
-                        <label>Performance Graph</label>
+                        <?php if($minAssessment != "") {?>
+                            <label>Remarks: <span>Pay Attention on <?php echo $minAssessment;?></span></label>
+                        <?php } ?>
+                            <br/><label style="color:#6FB89F;">Performance Graph</label>
                         <?php if($AssessmentCount != 0){?>
                         <div class="graph_body">
                             <div class="scrollTo-demo">
@@ -111,9 +109,6 @@
                                     <canvas id="canvas"></canvas>
                                 </div>
                             </div>
-                            <?php if($minAssessment != "") {?>
-                                <label>Remarks: <span>Pay Attention on <?php echo $minAssessment;?></span></label>
-                            <?php } ?>
                         </div>
                         <?php }else {?>
                             <div class="result_sheet_heading">No Assessment Attempted Yet!</div>
@@ -129,6 +124,7 @@
     var assessmentNames = new Array();
     var myMarks = new Array;
     var maxMarks = new Array;
+    var totalMarks = new Array;
     var counter = 0;
     var myBar;
     
@@ -145,6 +141,7 @@
                     for(var i = 0; i < data.length; i++){
                         assessmentNames[counter] = data[i][0];
                         myMarks[counter] = data[i][1];
+                        totalMarks[counter] = data[i][2];
                         maxMarks[counter] = data[i][3];
                         counter++;
                     }
@@ -152,6 +149,14 @@
                         labels : ["assessmentNames"],
                         datasets : [
                             {
+                                label: "Total Marks",
+                                fillColor : "rgba(151,187,205,0.5)",
+                                strokeColor : "rgba(151,187,205,0.8)",
+                                highlightFill : "rgba(151,187,205,0.75)",
+                                highlightStroke : "rgba(151,187,205,1)",
+                                data : [randomScalingFactor()]
+                            }
+                            ,{
                                 label: "Maximum Marks",
                                 fillColor : "rgba(220,220,220,0.5)",
                                 strokeColor : "rgba(220,220,220,0.8)",
@@ -178,8 +183,9 @@
                         });
                         for(var j = 0; j < assessmentNames.length; j++){
                             var array = new Array();
-                            array[0] = maxMarks[j];
-                            array[1] = myMarks[j];
+                            array[0] = totalMarks[j];
+                            array[1] = maxMarks[j];
+                            array[2] = myMarks[j];
                             myBar.addData( array, assessmentNames[j]);
                         }
                         myBar.removeData();
