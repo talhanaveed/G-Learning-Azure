@@ -139,7 +139,7 @@
   <p>Since it's your first time, You must give Initial Test.</p>
 </div>
 
-<div class="drill_page_body">
+<div class="student_dashboard_body">
     <div class="mid-content" id="mid-content">
         <div class="student_top_menu">
             <div class="student_menu_tabs">
