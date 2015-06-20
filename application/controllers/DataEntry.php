@@ -19,7 +19,7 @@ class DataEntry extends CI_Controller{
         $total_marks=10*$i;
         $drill_name  = $this->security->xss_clean($this->input->post('hidden_drill_id')); //drill 
         
-        if($drill_name== "Addition")
+       if($drill_name== "Addition")
         {   $drill_id=1;    }
         else if($drill_name== "Even/Odd")
         {   $drill_id=4;    }
@@ -215,14 +215,12 @@ class DataEntry extends CI_Controller{
     {
         $teacher_id = $this->session->userdata['person_id'];
         $school_id=$this->session->userdata['school_id'];
-       
+        
         $assess_name  = $this->security->xss_clean($this->input->post('DeleteAssessment_name'));
         $this->load->model('Teacher_Model');
         $result = $this->Teacher_Model->delete_assessment($assess_name,$school_id,$teacher_id);
-        
         if ( $result==0) //insertion failed
         {
-             
             //loading delete_assess
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'delete_failed';
@@ -240,19 +238,17 @@ class DataEntry extends CI_Controller{
                 $this->load->view('teacher_home');
                 $this->load->view('footer_new_design');
                 
-         //   return false;
+            return false;
         }else
         {
-           
                 //loading delete_assess
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'delete_assess';
-                $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
+                 $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
                 $drills = $this->Teacher_Model->getAllDrills();
                 $myDrillNames = array();
                 $i = 0;
-                foreach($drills as $drill)
-                {
+                foreach($drills as $drill){
                     $myDrillNames[$i] = $drill->topic_name;
                     $i++;
                 }
@@ -262,8 +258,8 @@ class DataEntry extends CI_Controller{
                 $this->load->view('teacher_home');
                 $this->load->view('footer_new_design');
                 
-        //        echo $teacher_id;
-       //     return true;
+                echo $teacher_id;
+            return true;
         }
     }
     

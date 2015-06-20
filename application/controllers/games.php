@@ -75,7 +75,11 @@ class games extends CI_Controller{
     
     public function shootEmUp()
     {
+        $this->load->model('levels_model');
+        $person_id = $this->session->userdata['person_id'];
         $data['page_title'] = 'G-Learning | Shoot Em Up';
+        $data['level'] =  $this->levels_model->checkLevel($person_id);
+        $data['drill_id'] = $this->levels_model->getDrillId("Subtraction");
         $this->load->view('main_header_new',$data);
         $this->load->view('shootemup_asses_game');
         $this->load->view('footer');
