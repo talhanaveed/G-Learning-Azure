@@ -49,7 +49,6 @@ class login extends CI_Controller{
             if($result1 == false){
                 $data['page_title'] = 'G-Learning | Parents';
                 $data['name'] = $this->session->userdata['Namesss'];
-                $this->session->set_userdata('type','parent');
                 redirect('parents');
             }
             else{
