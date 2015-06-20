@@ -18,6 +18,7 @@ class Parent_Model extends CI_Model {
         $this->db->from('assessment a');
         $this->db->join('gradesheet g', 'a.assessment_id = g.assessment_id');
         $this->db->where('a.assessment_name', $assessmentName);
+        $this->db->group_by('g.student_id');
         $query = $this->db->get();
         if($query){
             $row = $query->row();
