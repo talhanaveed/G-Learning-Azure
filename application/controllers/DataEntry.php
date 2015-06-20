@@ -22,17 +22,11 @@ class DataEntry extends CI_Controller{
         if($drill_name== "Addition")
         {   $drill_id=1;    }
         else if($drill_name== "Even/Odd")
-        {   $drill_id=4;    }
+        {   $drill_id=2;    }
         else if($drill_name== "Highest/Lowest")
         {   $drill_id=3;    }
         else if($drill_name== "Multiples")
-        {   $drill_id=5;    }
-         else if($drill_name== "Subtraction")
-        {   $drill_id=2;    }
-         else if($drill_name== "Ascending")
-        {   $drill_id=6;    }
-         else if($drill_name== "Descending")
-        {   $drill_id=7;    }
+        {   $drill_id=4;    }
         
         
         $this->load->model('Teacher_Model');
@@ -215,16 +209,12 @@ class DataEntry extends CI_Controller{
     {
         $teacher_id = $this->session->userdata['person_id'];
         $school_id=$this->session->userdata['school_id'];
-       
+        
         $assess_name  = $this->security->xss_clean($this->input->post('DeleteAssessment_name'));
         $this->load->model('Teacher_Model');
         $result = $this->Teacher_Model->delete_assessment($assess_name,$school_id,$teacher_id);
-          $ms2 = "hey there OUTside ";
-            echo $ms2;
         if ( $result==0) //insertion failed
         {
-             $ms = "hey there inside ";
-            echo $ms;
             //loading delete_assess
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'delete_failed';
@@ -242,20 +232,17 @@ class DataEntry extends CI_Controller{
                 $this->load->view('teacher_home');
                 $this->load->view('footer_new_design');
                 
-         //   return false;
+            return false;
         }else
         {
-            $ms = "hey there inside ";
-            echo $ms;
                 //loading delete_assess
                 $data['page_title'] = 'G-Learning | Teacher';
                 $data['scroll_to_div'] = 'delete_assess';
-                $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
+                 $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
                 $drills = $this->Teacher_Model->getAllDrills();
                 $myDrillNames = array();
                 $i = 0;
-                foreach($drills as $drill)
-                {
+                foreach($drills as $drill){
                     $myDrillNames[$i] = $drill->topic_name;
                     $i++;
                 }
@@ -265,8 +252,8 @@ class DataEntry extends CI_Controller{
                 $this->load->view('teacher_home');
                 $this->load->view('footer_new_design');
                 
-        //        echo $teacher_id;
-       //     return true;
+                echo $teacher_id;
+            return true;
         }
     }
     
