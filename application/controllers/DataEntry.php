@@ -215,11 +215,12 @@ class DataEntry extends CI_Controller{
     {
         $teacher_id = $this->session->userdata['person_id'];
         $school_id=$this->session->userdata['school_id'];
-         $ms2 = "hey there OUTside ";
-            echo $ms2;
+       
         $assess_name  = $this->security->xss_clean($this->input->post('DeleteAssessment_name'));
         $this->load->model('Teacher_Model');
         $result = $this->Teacher_Model->delete_assessment($assess_name,$school_id,$teacher_id);
+          $ms2 = "hey there OUTside ";
+            echo $ms2;
         if ( $result==0) //insertion failed
         {
              $ms = "hey there inside ";
