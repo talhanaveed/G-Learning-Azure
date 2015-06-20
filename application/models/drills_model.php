@@ -36,7 +36,7 @@ class drills_model extends CI_Model {
         $this->db->where('gradesheet.student_id', $id);
         return $this->db->get()->result();
     }
-    public function incrementDrillLevel()
+    public function incrementDrillLevel($level)
     {
         
         $level++;
