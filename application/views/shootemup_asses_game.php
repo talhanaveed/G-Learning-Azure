@@ -147,7 +147,7 @@
                                 
                                 function endGame( arg )
 				{
-				    window.location.href = "<?php echo base_url();?>"+"home/drills";
+				    window.location.href = "<?php echo base_url();?>"+"drills";
 				}
 				
 		-->
