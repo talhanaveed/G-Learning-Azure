@@ -219,56 +219,52 @@ class DataEntry extends CI_Controller{
         $assess_name  = $this->security->xss_clean($this->input->post('DeleteAssessment_name'));
         $this->load->model('Teacher_Model');
         $result = $this->Teacher_Model->delete_assessment($assess_name,$school_id,$teacher_id);
-          $ms2 = "hey there OUTside ";
-            echo $ms2;
-            echo $result;
-        // if ( $result==0) //insertion failed
-        // {
-        //      $ms = "hey there inside ";
-        //     echo $ms;
-        //     //loading delete_assess
-        //         $data['page_title'] = 'G-Learning | Teacher';
-        //         $data['scroll_to_div'] = 'delete_failed';
-        //         $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-        //         $drills = $this->Teacher_Model->getAllDrills();
-        //         $myDrillNames = array();
-        //         $i = 0;
-        //         foreach($drills as $drill){
-        //             $myDrillNames[$i] = $drill->topic_name;
-        //             $i++;
-        //         }
-        //         $data['drillsNames'] = $myDrillNames;
-        //         $data['drillsCount'] = count($myDrillNames);
-        //         $this->load->view('header_only_image',$data);
-        //         $this->load->view('teacher_home');
-        //         $this->load->view('footer_new_design');
+        
+        if ( $result==0) //insertion failed
+        {
+             
+            //loading delete_assess
+                $data['page_title'] = 'G-Learning | Teacher';
+                $data['scroll_to_div'] = 'delete_failed';
+                $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
+                $drills = $this->Teacher_Model->getAllDrills();
+                $myDrillNames = array();
+                $i = 0;
+                foreach($drills as $drill){
+                    $myDrillNames[$i] = $drill->topic_name;
+                    $i++;
+                }
+                $data['drillsNames'] = $myDrillNames;
+                $data['drillsCount'] = count($myDrillNames);
+                $this->load->view('header_only_image',$data);
+                $this->load->view('teacher_home');
+                $this->load->view('footer_new_design');
                 
-        //  //   return false;
-        // }else
-        // {
-        //     $ms = "hey there inside ";
-        //     echo $ms;
-        //         //loading delete_assess
-        //         $data['page_title'] = 'G-Learning | Teacher';
-        //         $data['scroll_to_div'] = 'delete_assess';
-        //         $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
-        //         $drills = $this->Teacher_Model->getAllDrills();
-        //         $myDrillNames = array();
-        //         $i = 0;
-        //         foreach($drills as $drill)
-        //         {
-        //             $myDrillNames[$i] = $drill->topic_name;
-        //             $i++;
-        //         }
-        //         $data['drillsNames'] = $myDrillNames;
-        //         $data['drillsCount'] = count($myDrillNames);
-        //         $this->load->view('header_only_image',$data);
-        //         $this->load->view('teacher_home');
-        //         $this->load->view('footer_new_design');
+         //   return false;
+        }else
+        {
+           
+                //loading delete_assess
+                $data['page_title'] = 'G-Learning | Teacher';
+                $data['scroll_to_div'] = 'delete_assess';
+                $data['assessments'] = $this->Teacher_Model->get_assessments_by_teacher($teacher_id)->result_array();
+                $drills = $this->Teacher_Model->getAllDrills();
+                $myDrillNames = array();
+                $i = 0;
+                foreach($drills as $drill)
+                {
+                    $myDrillNames[$i] = $drill->topic_name;
+                    $i++;
+                }
+                $data['drillsNames'] = $myDrillNames;
+                $data['drillsCount'] = count($myDrillNames);
+                $this->load->view('header_only_image',$data);
+                $this->load->view('teacher_home');
+                $this->load->view('footer_new_design');
                 
-        // //        echo $teacher_id;
-       // //     return true;
-        // }
+        //        echo $teacher_id;
+       //     return true;
+        }
     }
     
     public function ViewStudents()
