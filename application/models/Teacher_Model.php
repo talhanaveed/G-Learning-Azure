@@ -40,7 +40,6 @@ class Teacher_Model extends CI_Model {
             $this->db->where('school_id', $school_id);
             $this->db->where('teacher_id', $teacher_id);
             $this->db->delete('assessment');
-            echo $this->db->affected_rows();
             return $this->db->affected_rows();
     }
     
@@ -52,7 +51,7 @@ class Teacher_Model extends CI_Model {
         $this->db->from('login');
         $this->db->join('person', 'person.person_id = login.person_id');
       //  $this->db->join('gradesheet', 'gradesheet.student_id = login.person_id');
-        $this->db->group_by('person.person_id,first_name,last_name,email');
+          $this->db->group_by('person.person_id,first_name,last_name,email');
        // $this->db->order_by('score', 'desc');
         $results = $this->db->get();
         
@@ -197,8 +196,9 @@ public function insert_new_assessment($assess_name,$total_marks,$drill_id,$teach
         
         foreach ($assessments->result() as $assess_id)
         {   
-                array_push($assessments_id,$assess_id->assessment_id);
+            array_push($assessments_id,$assess_id->assessment_id);
         }
+        
         
         foreach ($assessments_id as $a)
         {
