@@ -63,8 +63,7 @@
         </select>
         </div>
     <input type="submit" value="Log in" class=""/>
-
-  </form>
+    </form>
 
 </div>
 

@@ -39,8 +39,8 @@ class Teacher_Model extends CI_Model {
             $this->db->where('assessment_name', $assess_name);
             $this->db->where('school_id', $school_id);
             $this->db->where('teacher_id', $teacher_id);
-            $this->db->delete('assessment');
-            return $this->db->affected_rows();
+            return $this->db->delete('assessment');
+          //  return $this->db->affected_rows();
     }
     
     function get_all_students($school_id , &$j)
