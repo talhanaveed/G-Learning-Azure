@@ -40,6 +40,7 @@ class Teacher_Model extends CI_Model {
             $this->db->where('school_id', $school_id);
             $this->db->where('teacher_id', $teacher_id);
             $this->db->delete('assessment');
+            echo $this->db->affected_rows();
             return $this->db->affected_rows();
     }
     
