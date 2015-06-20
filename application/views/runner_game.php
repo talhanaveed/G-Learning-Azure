@@ -107,7 +107,7 @@
 
                             if(data)
                             {                    
-                               window.location.href = "<?php echo base_url();?>"+"games/assessmentBird";
+                               window.location.href = "<?php echo base_url();?>"+"games/shootEmUp";
                                // alert(data);
                             }
                             //else

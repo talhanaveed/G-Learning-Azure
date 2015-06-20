@@ -90,7 +90,7 @@
                 function endGame( arg )
                 {
                 	score(arg);
-                    window.location.href = "<?php echo base_url();?>"+"games/assessmentBird";
+                    window.location.href = "<?php echo base_url();?>"+"games/shootEmUp";
                 }
                 function score(arg)
                 {
