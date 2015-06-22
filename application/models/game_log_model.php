@@ -46,21 +46,24 @@ class game_log_model extends CI_Model {
          $exists = $this->db->get('gradesheet');
          $query = null;
          
-//         if ($exists )
-//         {
-//            $this->db->where('person_id', $person_id);
-//            $this->db->where('assessment_id',$assessment_id);
-//            $query = $this->db->update('gradesheet',$data); 
-//         }
-//         else
-//            $query = $this->db->insert('gradesheet',$data);
-         $query = $this->db->insert('gradesheet',$data);
-        if ($query)
+        if ($exists )
         {
-            return 1;
+           $this->db->where('person_id', $person_id);
+           $this->db->where('assessment_id',$assessment_id);
+           $query = $this->db->update('gradesheet',$data); 
         }
         else
-            return -1;
+        {
+            $query = $this->db->insert('gradesheet',$data);
+        }
+           
+        //  $query = $this->db->insert('gradesheet',$data);
+        // if ($query)
+        // {
+        //     return 1;
+        // }
+        // else
+        //     return -1;
     }
     
    
