@@ -58,12 +58,12 @@ class game_log_model extends CI_Model {
         }
            
         //  $query = $this->db->insert('gradesheet',$data);
-        // if ($query)
-        // {
-        //     return 1;
-        // }
-        // else
-        //     return -1;
+        if ($query)
+        {
+            return 1;
+        }
+        else
+            return -1;
     }
     
    
