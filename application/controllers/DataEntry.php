@@ -22,17 +22,17 @@ class DataEntry extends CI_Controller{
        if($drill_name== "Addition")
         {   $drill_id=1;    }
         else if($drill_name== "Even/Odd")
-        {   $drill_id=4;    }
-        else if($drill_name== "Highest/Lowest")
-        {   $drill_id=3;    }
-        else if($drill_name== "Multiples")
         {   $drill_id=5;    }
-         else if($drill_name== "Subtraction")
+        else if($drill_name== "Highest/Lowest")
         {   $drill_id=2;    }
-         else if($drill_name== "Ascending")
+        else if($drill_name== "Multiples")
         {   $drill_id=6;    }
-         else if($drill_name== "Descending")
+         else if($drill_name== "Subtraction")
         {   $drill_id=7;    }
+         else if($drill_name== "Ascending")
+        {   $drill_id=3;    }
+         else if($drill_name== "Descending")
+        {   $drill_id=4;    }
         
         
         $this->load->model('Teacher_Model');
