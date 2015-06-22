@@ -48,7 +48,7 @@ class game_log_model extends CI_Model {
          
         if ($exists )
         {
-           $this->db->where('person_id', $person_id);
+           $this->db->where('student_id', $person_id);
            $this->db->where('assessment_id',$assessment_id);
            $query = $this->db->update('gradesheet',$data); 
         }
