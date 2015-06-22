@@ -55,6 +55,7 @@ class levels_model extends CI_Model {
                 $questionArray[$i][5] = $row->answer;
                 $i++;
             }
+            $this->session->set_userdata('ass_id',$id);
             return $questionArray;
         }
         else

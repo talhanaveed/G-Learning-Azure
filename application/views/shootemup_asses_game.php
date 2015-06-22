@@ -4,9 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Unity Web Player | Shoot'Em Up</title>
-                <script type="text/javascript">
-                
-                                </script>
+              
 		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
 		<script type="text/javascript">
 		<!--
@@ -21,7 +19,10 @@
                 
 		<script type="text/javascript">
 		<!--
-                                    
+                        var level = <?php echo $level;?>;
+                        var drill_id = <?php echo $drill_id;?>;
+                        var p_id = <?php echo $this->session->userdata['person_id']; ?>;
+                        var assessment_id = 0;
 			var config = {
 				width: 960, 
 				height: 540,
@@ -69,7 +70,9 @@
 
 			});
                         $(document).ready(function(){
+                                log("getting Questions");
                                 getQuestionsXML();
+                                log("Done with XML");
                         });
                         var XMLString = "";
 
@@ -92,7 +95,7 @@
                                         if(data){                    
                                             myArray = data;
                                             makeXML();
-                                            //log(XMLString);
+                                            log(XMLString);
                                         }
                                         //else
                                             //alert("Error Parsing XML");
@@ -103,6 +106,7 @@
                             }
 
                             function makeXML(){
+                                
                                 var size = myArray[0];
                                 XMLString = XMLString + "<assessment>\n<questions>"+size+"</questions>\n";
                                 for(var i = 0; i < size; i++){
@@ -146,9 +150,33 @@
 				}
                                 
                                 function endGame( arg )
-				{
-				    window.location.href = "<?php echo base_url();?>"+"drills/increaseDrillLevel";
-				}
+                                {
+                                        var x = parseInt(arg);
+                                        log(x);
+                                        score(x);
+                                }
+
+                                function score(arg)
+                                {
+                                    var percentageScore = arg;
+                                    var baseurl = "<?php print base_url(); ?>";
+                                    log('storing score');
+                                    $.ajax({
+                                        url:  baseurl +"games/LogAssessmentScore",
+                                        type:'POST',
+                                        data: { score : percentageScore},
+                                        cache:false,
+                                        dataType: 'json',
+                                        success:function(data)
+                                        {
+                                            if(data){  
+                                               window.location.href = "<?php echo base_url();?>"+"drills/updateDrillLevel";
+                                            }
+                                        },
+                                        error:function(x,e){
+                                        }
+                                    }); 
+                                }
 				
 		-->
 		</script>

@@ -37,16 +37,14 @@ class drills_model extends CI_Model {
         return $this->db->get()->result();
     }
     public function incrementDrillLevel($level)
-    {
-        
+    {        
         $level++;
-        if($level<$this->getDrillsCount())
+        if($level < $this->getDrillsCount())
         {
             $this->db->where('person_id', $this->session->userdata('person_id'));
             $this->db->set('drill_level', 'drill_level+1', FALSE);
             $this->db->update('person');
             $this->session->set_userdata('drill_level',$level);
-
         }
 
     }

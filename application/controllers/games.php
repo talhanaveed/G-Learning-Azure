@@ -107,6 +107,7 @@ class games extends CI_Controller{
         $myQuestionsArray = array();
         $myQuestionsArray[0] = count($questionArray);
         $myQuestionsArray[1] = $questionArray;
+
         echo json_encode($myQuestionsArray);
         
         /*$data['page_title'] = 'G-Learning | Assessment';
@@ -182,6 +183,17 @@ class games extends CI_Controller{
         echo $this->game_log_model->logScore($person_id, $drill_id, $level,$percentageScore);
 
 
+
+    }
+    
+    public function LogAssessmentScore()
+    {
+        $this->load->model('game_log_model');        
+        $assessement_id  = $this->session->userdata['ass_id'];
+        $score = $this->input->post('score');
+        
+        $person_id = $this->session->userdata['person_id'];
+        echo $this->game_log_model->logAssessmentScore($person_id, $assessement_id,$score);
 
     }
     public function testView()

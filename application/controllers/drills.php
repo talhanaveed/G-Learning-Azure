@@ -40,14 +40,11 @@ class drills extends CI_Controller{
         $this->load->view('drills_view');
         $this->load->view('footer_new_design');
     }
-    
-    public function increaseDrillLevel()
+    public function updateDrillLevel()
     {
-        $this->load->model('drills_model');
         $this->drills_model->incrementDrillLevel($this->session->userdata('drill_level'));
-        redirect('drills');
+        $this->assessments();
     }
-    
     public function assessments()
     {
         $data['page_title'] = 'G-Learning | Assessments';
@@ -64,8 +61,6 @@ class drills extends CI_Controller{
             $i++;
         }
         $count = count($myAssessments);
-        if($count == 1)
-            $count -= 1;
         
         $data['scroll_to_div'] = 'heading_teacher';
         $data['assessmentCount'] = $count;
