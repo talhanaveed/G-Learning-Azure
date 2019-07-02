@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 G-LEARNING
 ==========
 
@@ -8,4 +8,4 @@ G-LEARNING
 ==========
 
 **LEARNING THROUGH GAMES**
->>>>>>> master
+
